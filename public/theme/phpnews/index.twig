@@ -1,0 +1,13 @@
+{% extends 'master.twig' %}
+
+
+{% block main %}
+
+    {% setcontent items = 'feeditems' %}
+    {% for item in items %}
+        <h2>{{ item.title }}</h2>
+        {{ item|excerpt }}
+        {% include 'partials/_recordfooter.twig' with {'record' : item} %}
+    {% endfor %}
+
+{% endblock main %}

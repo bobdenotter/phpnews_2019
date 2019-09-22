@@ -1,0 +1,16 @@
+{% extends 'master.twig' %}
+
+
+{% block main %}
+
+    {% for record in records %}
+        <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
+        {{ record|excerpt }}
+        {% include 'partials/_recordfooter.twig' with {'record' : record} %}
+    {% endfor %}
+
+
+    {{ pager(records, template = 'helpers/_pager_basic.html.twig') }}
+
+
+{% endblock main %}

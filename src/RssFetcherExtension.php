@@ -24,20 +24,33 @@ class RssFetcherExtension extends BaseExtension
 
     public function fetchFeed($feed)
     {
-        dump($feed);
+        $config = $this->getConfig();
 
         $reader = new Reader();
-        $resource = $reader->download($feed['feed']);
-        $parser = $reader->getParser(
-            $resource->getUrl(),
-            $resource->getContent(),
-            $resource->getEncoding()
-        );
 
-        // Return a Feed object
-        $feed = $parser->execute();
+        try {
+            $resource = $reader->download($feed['feed']);
+        } catch (\Exception $e) {
+            echo "### Error: couldn't download " . $feed['feed'] . "\n";
+            return null;
+        }
 
-        return $feed->getItems();
+        try {
+            $parser = $reader->getParser(
+                $resource->getUrl(),
+                $resource->getContent(),
+                $resource->getEncoding()
+            );
+
+            // Return a Feed object
+            $feed = $parser->execute();
+
+        } catch (\Exception $e) {
+            echo "### Error: couldn't parse " . $feed['feed'] . "\n";
+            return null;
+        }
+
+        return array_slice($feed->getItems(), 0, $config->get('itemAmount', 3));
 
     }
 
@@ -68,7 +81,7 @@ class RssFetcherExtension extends BaseExtension
                 $content->setStatus('published');
                 $content->setAuthor($user);
             } else {
-                echo " - [upd] ". $item->getTitle() . "\n";
+                echo " - [upd] ". $content->getId() . " - " . $item->getTitle() . "\n";
             }
 
             $content->setFieldValue('title', $item->getTitle());
@@ -92,15 +105,22 @@ class RssFetcherExtension extends BaseExtension
 
         }
 
-        $this->objectManager->persist($content);
         $this->objectManager->flush();
     }
 
     public function fetchAllFeeds()
     {
         foreach ($this->getConfig()->get('feeds') as $name => $feed) {
+
+            if (isset($feed['skip']) && $feed['skip'] == 'true') {
+                continue;
+            }
+
             $feedItems = $this->fetchFeed($feed);
-            $this->updateItems($name, $feed, $feedItems);
+
+            if ($feedItems) {
+                $this->updateItems($name, $feed, $feedItems);
+            }
         }
     }
 

@@ -1,0 +1,14 @@
+{% extends 'master.twig' %}
+
+{% block main %}
+
+    <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
+
+    {{ record.content }}
+
+    {{ dump(record) }}
+
+    {% include 'partials/_recordfooter.twig' with {'record' : record, 'extended': true} %}
+
+
+{% endblock main %}

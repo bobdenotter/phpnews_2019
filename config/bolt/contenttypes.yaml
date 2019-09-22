@@ -45,7 +45,7 @@ feeditems:
     listing_records: 20
     default_status: published
     sort: -datepublish
-    recordsperpage: 20
+    records_per_page: 20
 
 
 homepage:
@@ -136,6 +136,7 @@ pages:
             filter: '*.twig'
     taxonomy: [ groups ]
     recordsperpage: 5
+    locales: ['en', 'nl', 'pt_BR', 'es']
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a
