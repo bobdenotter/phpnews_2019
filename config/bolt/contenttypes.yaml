@@ -4,6 +4,50 @@
 # The Homepage content type is a singleton: There can be only one record of this
 # content type.
 
+
+feeditems:
+    name: Feeditems
+    singular_name: Feeditem
+    description: "Crawled feed items. Do not change manually."
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        itemid:
+            type: text
+            variant: inline
+        content:
+            type: html
+        raw:
+            type: textarea
+        source:
+            type: text
+            variant: inline
+        author:
+            type: text
+            variant: inline
+        image:
+            type: text
+            variant: inline
+        sitetitle:
+            type: text
+            variant: inline
+        sitesource:
+            type: text
+            variant: inline
+    taxonomy: [ tags, authors ]
+    record_template: feeditem.twig
+    listing_template: listing.twig
+    listing_records: 20
+    default_status: published
+    sort: -datepublish
+    recordsperpage: 20
+
+
 homepage:
     name: Homepage
     singular_name: Homepage

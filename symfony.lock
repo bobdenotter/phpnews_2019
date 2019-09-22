@@ -154,6 +154,12 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.36"
     },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.3"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
     "guzzlehttp/psr7": {
         "version": "1.5.2"
     },
@@ -165,6 +171,9 @@
     },
     "justinrainbow/json-schema": {
         "version": "5.2.8"
+    },
+    "kevinrob/guzzle-cache-middleware": {
+        "version": "v2.1.1"
     },
     "knplabs/knp-menu": {
         "version": "2.3.0"
@@ -204,6 +213,9 @@
     },
     "nesbot/carbon": {
         "version": "1.36.2"
+    },
+    "nicolus/picofeed": {
+        "version": "0.1.42"
     },
     "nikic/php-parser": {
         "version": "v4.2.1"
@@ -270,6 +282,9 @@
     },
     "ralouphie/getallheaders": {
         "version": "2.0.5"
+    },
+    "scienta/doctrine-json-functions": {
+        "version": "4.0.2"
     },
     "seld/jsonlint": {
         "version": "1.7.1"
@@ -671,5 +686,8 @@
     },
     "willdurand/negotiation": {
         "version": "v2.3.1"
+    },
+    "zendframework/zendxml": {
+        "version": "1.2.0"
     }
 }

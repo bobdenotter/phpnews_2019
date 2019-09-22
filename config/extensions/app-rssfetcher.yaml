@@ -1,0 +1,16 @@
+
+feeds:
+#  Freek.dev:
+#    url: https://freek.dev/
+#    feed: https://freek.dev/feed/
+#    compact: true
+#  stitcher.io:
+#    url: https://stitcher.io/
+#    feed: https://stitcher.io/rss
+#  patricklouys:
+#    url: https://patricklouys.com
+#    feed: https://patricklouys.com/feed.xml
+  symfony:
+    url: "http://symfony.com/blog/"
+    feed: "http://feeds.feedburner.com/symfony/blog"
+    compact: true
