@@ -44,7 +44,7 @@ feeditems:
     listing_template: listing.twig
     listing_records: 20
     default_status: published
-    sort: -datepublish
+    sort: -createdAt
     records_per_page: 20
 
 

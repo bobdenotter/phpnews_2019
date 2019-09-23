@@ -3,11 +3,14 @@
 
 {% block main %}
 
-    {% setcontent items = 'feeditems' %}
+    {% setcontent items = 'feeditems' order 'id' %}
     {% for item in items %}
         <h2>{{ item.title }}</h2>
         {{ item|excerpt }}
         {% include 'partials/_recordfooter.twig' with {'record' : item} %}
     {% endfor %}
+
+{#    {{ pager(items, template = 'helpers/_pager_basic.html.twig') }}#}
+
 
 {% endblock main %}
