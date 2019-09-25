@@ -5,7 +5,7 @@
 
     {% for record in records %}
         <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
-        {{ record|excerpt }}
+        {{ record.content|excerpt }}
         {% include 'partials/_recordfooter.twig' with {'record' : record} %}
     {% endfor %}
 

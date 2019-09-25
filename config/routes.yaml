@@ -19,7 +19,10 @@ frontend:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
-custom:
+
+
+# Routes for the project-specific functionality
+project:
   resource: '../src/'
   prefix: /
   type: annotation
