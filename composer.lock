@@ -266,16 +266,16 @@
         },
         {
             "name": "bobdenotter/weatherwidget",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobdenotter/weatherwidget.git",
-                "reference": "74f8bf752b344949c6d47829745c9a7c9cb84c5e"
+                "reference": "b9c96315ea25b20c22feca4a814f3924f68a40f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobdenotter/weatherwidget/zipball/74f8bf752b344949c6d47829745c9a7c9cb84c5e",
-                "reference": "74f8bf752b344949c6d47829745c9a7c9cb84c5e",
+                "url": "https://api.github.com/repos/bobdenotter/weatherwidget/zipball/b9c96315ea25b20c22feca4a814f3924f68a40f5",
+                "reference": "b9c96315ea25b20c22feca4a814f3924f68a40f5",
                 "shasum": ""
             },
             "require": {
@@ -305,20 +305,20 @@
                 }
             ],
             "description": "🌤 A simple Dashboard Widget that displays the current weather. So you don't actually need to go outside or open the curtains.",
-            "time": "2019-09-04T19:53:50+00:00"
+            "time": "2019-09-26T11:25:31+00:00"
         },
         {
             "name": "bolt/assets",
-            "version": "4.0.0-beta.3.3",
+            "version": "4.0.0-beta.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/assets.git",
-                "reference": "ad56220d4891b159bf367b77504f4339e8911f6c"
+                "reference": "e962913dcf9ac52a0490aad9d163e249e30e1b79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/assets/zipball/ad56220d4891b159bf367b77504f4339e8911f6c",
-                "reference": "ad56220d4891b159bf367b77504f4339e8911f6c",
+                "url": "https://api.github.com/repos/bolt/assets/zipball/e962913dcf9ac52a0490aad9d163e249e30e1b79",
+                "reference": "e962913dcf9ac52a0490aad9d163e249e30e1b79",
                 "shasum": ""
             },
             "require-dev": {
@@ -336,7 +336,7 @@
                 }
             ],
             "description": "🛠 Assets used in Bolt's backend. Do not use directly.",
-            "time": "2019-09-22T10:50:47+00:00"
+            "time": "2019-09-26T11:54:10+00:00"
         },
         {
             "name": "bolt/common",
@@ -392,16 +392,16 @@
         },
         {
             "name": "bolt/core",
-            "version": "4.0.0-beta.3.3",
+            "version": "4.0.0-beta.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/core.git",
-                "reference": "ee4da330a26a2b4ff4110ce24a2f85e70a64d455"
+                "reference": "2e10c76adcface1045167403cb89aaa567c64a8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/core/zipball/ee4da330a26a2b4ff4110ce24a2f85e70a64d455",
-                "reference": "ee4da330a26a2b4ff4110ce24a2f85e70a64d455",
+                "url": "https://api.github.com/repos/bolt/core/zipball/2e10c76adcface1045167403cb89aaa567c64a8f",
+                "reference": "2e10c76adcface1045167403cb89aaa567c64a8f",
                 "shasum": ""
             },
             "require": {
@@ -520,7 +520,7 @@
                 "MIT"
             ],
             "description": "🧿 Bolt 4 Core",
-            "time": "2019-09-22T07:58:25+00:00"
+            "time": "2019-09-26T11:37:35+00:00"
         },
         {
             "name": "bolt/newswidget",
@@ -567,16 +567,16 @@
         },
         {
             "name": "bolt/themes",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/themes.git",
-                "reference": "2085fca61ee7e2cbb7bfeba67f7452a582eb3f44"
+                "reference": "8958e04efdb585c496484fd0b24f0eba482f5cc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/themes/zipball/2085fca61ee7e2cbb7bfeba67f7452a582eb3f44",
-                "reference": "2085fca61ee7e2cbb7bfeba67f7452a582eb3f44",
+                "url": "https://api.github.com/repos/bolt/themes/zipball/8958e04efdb585c496484fd0b24f0eba482f5cc1",
+                "reference": "8958e04efdb585c496484fd0b24f0eba482f5cc1",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +606,7 @@
                 "cms",
                 "twig"
             ],
-            "time": "2019-09-20T13:03:17+00:00"
+            "time": "2019-09-25T14:30:09+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -1794,16 +1794,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "434820973cadf2da2d66e7184be370084cc32ca8"
+                "reference": "b52ef5a1002f99ab506a5a2d6dba5a2c236c5f43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/434820973cadf2da2d66e7184be370084cc32ca8",
-                "reference": "434820973cadf2da2d66e7184be370084cc32ca8",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/b52ef5a1002f99ab506a5a2d6dba5a2c236c5f43",
+                "reference": "b52ef5a1002f99ab506a5a2d6dba5a2c236c5f43",
                 "shasum": ""
             },
             "require": {
@@ -1818,9 +1818,8 @@
                 "symfony/console": "~3.0|~4.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^1.0",
-                "phpunit/phpunit": "^6.5",
-                "squizlabs/php_codesniffer": "^3.2",
+                "doctrine/coding-standard": "^5.0",
+                "phpunit/phpunit": "^7.5",
                 "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
@@ -1846,16 +1845,16 @@
             ],
             "authors": [
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
                 },
                 {
                     "name": "Jonathan Wage",
@@ -1872,7 +1871,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2018-11-20T23:46:46+00:00"
+            "time": "2019-09-20T14:30:26+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -2033,16 +2032,16 @@
         },
         {
             "name": "drupol/composer-packages",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupol/composer-packages.git",
-                "reference": "e2b3f85dd471744414dea232e3a25a906b3ed895"
+                "reference": "c19557b37e2be8e049d960d20e96c33e37769f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupol/composer-packages/zipball/e2b3f85dd471744414dea232e3a25a906b3ed895",
-                "reference": "e2b3f85dd471744414dea232e3a25a906b3ed895",
+                "url": "https://api.github.com/repos/drupol/composer-packages/zipball/c19557b37e2be8e049d960d20e96c33e37769f82",
+                "reference": "c19557b37e2be8e049d960d20e96c33e37769f82",
                 "shasum": ""
             },
             "require": {
@@ -2087,7 +2086,7 @@
                 "composer plugin",
                 "extension"
             ],
-            "time": "2019-08-22T11:50:24+00:00"
+            "time": "2019-09-24T18:44:01+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -8560,7 +8559,7 @@
         },
         {
             "name": "tightenco/collect",
-            "version": "v6.0.3",
+            "version": "v6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",

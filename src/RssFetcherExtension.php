@@ -2,16 +2,23 @@
 
 namespace App;
 
+use Bolt\Common\Json;
 use Bolt\Entity\Content;
 use Bolt\Entity\Field;
+use Bolt\Entity\Taxonomy;
 use Bolt\Entity\User;
 use Bolt\Extension\BaseExtension;
+use Bolt\Repository\TaxonomyRepository;
 use Bolt\Repository\UserRepository;
 use PicoFeed\Parser\Item;
 use PicoFeed\Reader\Reader;
+use Tightenco\Collect\Support\Collection;
 
 class RssFetcherExtension extends BaseExtension
 {
+    /** @var TaxonomyRepository */
+    private $taxonomyRepository;
+
     public function getName(): string
     {
         return "RSS Fetcher extension";
@@ -19,7 +26,9 @@ class RssFetcherExtension extends BaseExtension
 
     public function initialize(): void
     {
-
+//        $ext = new RssTwigExtension();
+//        $ext->setConfig($this->getConfig());
+//        $this->registerTwigExtension($ext);
     }
 
     public function fetchFeed($feed)
@@ -58,6 +67,7 @@ class RssFetcherExtension extends BaseExtension
     {
         $contentRepository = $this->objectManager->getRepository(Content::class);
         $userRepository = $this->objectManager->getRepository(User::class);
+        $this->taxonomyRepository = $this->objectManager->getRepository(Taxonomy::class);
 
         $user = $userRepository->findOneBy(['username' => 'admin']);
         $contentTypeDefinition = $this->boltConfig->getContentType('feeditems');
@@ -90,22 +100,52 @@ class RssFetcherExtension extends BaseExtension
             $content->setFieldValue('content', $item->getContent());
             $content->setFieldValue('raw', $item->getXml());
             $content->setFieldValue('source', $item->getUrl());
-            $content->setFieldValue('author', $item->getAuthor());
+            $content->setFieldValue('author', $name);
 //            $content->setFieldValue('image', $item->getTitle());
-            $content->setFieldValue('sitetitle', $name);
+            $content->setFieldValue('sitetitle', $item->getAuthor());
             $content->setFieldValue('sitesource', $feed['url']);
 
             $content->setCreatedAt($item->getDate());
             $content->setPublishedAt($item->getPublishedDate());
             $content->setModifiedAt($item->getUpdatedDate());
 
-            dump($item);
+            $tags = [];
+            foreach($item->getCategories() as $tag) {
+                $tags[] = ['slug' => $tag, 'name' => $name];
+            }
+
+            $this->updateTaxonomy($content, 'authors', [['slug' => $name, 'name' => $name]]);
+            $this->updateTaxonomy($content, 'tags', $tags);
 
             $this->objectManager->persist($content);
 
         }
 
         $this->objectManager->flush();
+    }
+
+    private function updateTaxonomy(Content $content, string $key, $taxonomies): void
+    {
+        $taxonomies = (new Collection(Json::findArray($taxonomies)))->filter();
+
+        // Remove old ones
+        foreach ($content->getTaxonomies($key) as $current) {
+            $content->removeTaxonomy($current);
+        }
+
+        // Then (re-) add selected ones
+        foreach ($taxonomies as $taxo) {
+            $taxonomy = $this->taxonomyRepository->findOneBy([
+                'type' => $key,
+                'slug' => $taxo['slug'],
+            ]);
+
+            if ($taxonomy === null) {
+                $taxonomy = Taxonomy::factory($key, $taxo['slug'], $taxo['name']);
+            }
+
+            $content->addTaxonomy($taxonomy);
+        }
     }
 
     public function fetchAllFeeds(?string $onlyFeed = null)

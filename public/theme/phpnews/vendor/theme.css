@@ -22,3 +22,8 @@ p.meta {
 img {
     max-width: 100%;
 }
+
+span.last-updated {
+    color: #888;
+    font-size: 0.85rem;
+}
