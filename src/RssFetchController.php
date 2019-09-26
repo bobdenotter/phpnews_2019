@@ -7,6 +7,7 @@ use Bolt\Controller\Backend\BackendZone;
 use Bolt\Extension\ExtensionRegistry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,15 +26,17 @@ class RssFetchController extends AbstractController implements BackendZone
     }
 
     /**
-     * @Route("/fetch", name="rss_fetch")
+     * @Route("/extension/fetch", name="rss_fetch")
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $rss = $this->extensionRegistry->getExtension(RssFetcherExtension::class);
 
+        $feed = $request->get('feed');
+
         ob_start();
 
-        $rss->fetchAllFeeds();
+        $rss->fetchAllFeeds($feed, null);
 
         $output = ob_get_clean();
 

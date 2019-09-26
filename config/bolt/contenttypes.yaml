@@ -42,7 +42,7 @@ feeditems:
     taxonomy: [ tags, authors ]
     record_template: feeditem.twig
     listing_template: listing.twig
-    listing_records: 20
+    listing_records: 4
     default_status: published
     sort: -createdAt
     records_per_page: 20

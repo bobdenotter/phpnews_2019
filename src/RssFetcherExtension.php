@@ -108,9 +108,15 @@ class RssFetcherExtension extends BaseExtension
         $this->objectManager->flush();
     }
 
-    public function fetchAllFeeds()
+    public function fetchAllFeeds(?string $onlyFeed = null)
     {
-        foreach ($this->getConfig()->get('feeds') as $name => $feed) {
+        $feeds = $this->getConfig()->get('feeds');
+
+        if ($onlyFeed && isset($feeds[$onlyFeed])) {
+            $feeds = [$onlyFeed => $feeds[$onlyFeed]];
+        }
+
+        foreach ($feeds as $name => $feed) {
 
             if (isset($feed['skip']) && $feed['skip'] == 'true') {
                 continue;

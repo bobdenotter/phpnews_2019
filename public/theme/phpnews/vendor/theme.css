@@ -18,3 +18,7 @@ p.meta {
     color: #666;
     margin: 1rem 0 1rem;
 }
+
+img {
+    max-width: 100%;
+}
