@@ -4,14 +4,21 @@
 {% block main %}
 
     {% for record in records %}
-        <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
-        {{ record.content|excerpt }}
-        {{ record.id }}
+        <h2><a href="{{ record|link }}">{{ record.title|raw }}</a></h2>
+
+        <p class="meta">Aggregated from <a href="{{ record.sitesource }}">{{ record.sitetitle }}</a> / <a href="{{ record.source }}">Original link</a></p>
+
+        {% if record.image %}
+        <p>
+            <img src="{{ record.image }}">
+        </p>
+        {% endif %}
+
+        {{ record.content|excerpt(1000) }}
+
         {% include 'partials/_recordfooter.twig' with {'record' : record} %}
     {% endfor %}
 
-
     {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
-
 
 {% endblock main %}

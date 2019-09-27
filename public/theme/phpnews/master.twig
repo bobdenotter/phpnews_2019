@@ -61,16 +61,16 @@
         <div class="col-lg-4">
             {% set feeds = getFeedsConfig() %}
 
-            {% for slug, feed in feeds %}
+            {% for slug, feed in feeds if not feed.skip|default(false) %}
                 <li>
-                    <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug}) }}">{{ feed.title }}</a>
+                    <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug|slug }) }}">{{ feed.title }}</a>
                     {% if feed.last_updated is defined %}
                         <span class="last-updated">(upd: {{ feed.last_updated|date('Y-m-d') }})</span>
                     {% endif %}
                 </li>
             {% endfor %}
 
-            {{ dump(feeds) }}
+{#            {{ dump(feeds) }}#}
         </div>
     </div>
 </div>

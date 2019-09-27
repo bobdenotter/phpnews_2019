@@ -4,6 +4,8 @@
 
     <h2><a href="{{ record|link }}">{{ record.title }}</a></h2>
 
+    <p class="meta">Written by <a href="{{ record.sitesource }}">{{ record.sitetitle }}</a> / <a href="{{ record.source }}">Original link</a></p>
+
     {{ record.content }}
 
     {{ dump(record) }}

@@ -68,13 +68,11 @@ class RssTwigExtension extends AbstractExtension
             $name = current(json_decode($result['value']));
 
             if (!empty($name) && isset($feeds[$name])) {
-                dump($name);
                 $feeds[$name]['last_updated'] = $result['last_updated'];
             }
         }
 
         $feeds = (new Collection($feeds))->sortByDesc('last_updated')->all();
-        dump($feeds);
 
         return $feeds;
     }

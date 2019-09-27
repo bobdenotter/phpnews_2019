@@ -6,6 +6,7 @@ tags:
     singular_slug: tag
     behaves_like: tags
     postfix: "Add some freeform tags. Start a new tag by typing a comma or space."
+    sort: -createdAt
     #listing_template: tag-listing.twig #custom template
 
 authors:
@@ -13,6 +14,7 @@ authors:
     singular_slug: author
     behaves_like: tags
     postfix: "The author (key) of this posting."
+    sort: -createdAt
     #listing_template: tag-listing.twig #custom template
 
 groups:

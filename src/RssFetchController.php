@@ -40,8 +40,6 @@ class RssFetchController extends AbstractController implements BackendZone
 
         $output = ob_get_clean();
 
-        dump($output);
-
         $twigvars = [
             'title' => "RSS Fetcher",
             'mainMarkdown' => $output

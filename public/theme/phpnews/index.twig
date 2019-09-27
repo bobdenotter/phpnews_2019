@@ -3,7 +3,7 @@
 
 {% block main %}
 
-    {% setcontent items = 'feeditems' order 'id' %}
+    {% setcontent items = 'feeditems' order '-createdAt' %}
     {% for item in items %}
         <h2>{{ item.title }}</h2>
         {{ item|excerpt }}

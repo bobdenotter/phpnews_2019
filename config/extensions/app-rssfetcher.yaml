@@ -1,5 +1,5 @@
 cacheMaxAge: 30
-itemAmount: 5
+itemAmount: 4
 
 # Set the key, to prevent people from trying to DDOS your server by triggering
 # /bolt/extends/rssaggregate a lot.
@@ -379,6 +379,7 @@ feeds:
     name: Intracto
     feed: https://blog.intracto.com/rss.xml
     title: Intracto
+    skip: true
   JasonMcCreary:
     url: https://jasonmccreary.me/
     name: Jason McCreary
@@ -452,6 +453,11 @@ feeds:
     name: Purple Booth
     feed: https://purplebooth.co.uk/index.xml
     title: Purple Booth
+  stitcher.io:
+    url: https://stitcher.io
+    feed: https://stitcher.io/rss
+    name: Stitcher.io
+    title: Stitcher.io
   sebastiandedeyne:
     url: https://sebastiandedeyne.com/feed
     name: Sebastian De Deyne
@@ -607,7 +613,7 @@ feeds:
     name: Alfred Nutile RSS
     feed: https://alfrednutile.info/rss_full
     title: Alfred Nutile RSS
-    # skip: true
+    skip: true
   troyhunt:
     url: https://www.troyhunt.com/
     name: Troy Hunt
