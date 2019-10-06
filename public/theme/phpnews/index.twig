@@ -3,14 +3,27 @@
 
 {% block main %}
 
-    {% setcontent items = 'feeditems' order '-createdAt' %}
+    {% setcontent items = 'feeditems' order '-publishedAt'  %}
     {% for item in items %}
-        <h2>{{ item.title }}</h2>
-        {{ item|excerpt }}
+        <h2><a href="{{ item|link }}">{{ item.title|raw }}</a></h2>
+
+        <p class="meta">
+            Aggregated from <a href="{{ item.sitesource }}">{{ item.sitetitle }}</a> /
+            <a href="{{ item.source }}">Original link</a>
+        </p>
+
+        {% if item.image %}
+            <p>
+                <img src="{{ item.image }}">
+            </p>
+        {% endif %}
+
+        {{ item.content|excerpt(1000) }}
+
         {% include 'partials/_recordfooter.twig' with {'record' : item} %}
     {% endfor %}
 
-{#    {{ pager(items, template = 'helpers/_pager_basic.html.twig') }}#}
+    {{ pager(items, template = 'helpers/_pager_bootstrap.html.twig') }}
 
 
 {% endblock main %}

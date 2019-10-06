@@ -57,7 +57,7 @@ class RssTwigExtension extends AbstractExtension
     {
         $feeds = $this->getConfig()->get('feeds');
 
-        $query = 'select c.id, MAX(c.created_at) as last_updated, f.value from bolt_content as C, bolt_field as F WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
+        $query = 'select MAX(c.created_at) as last_updated, f.value from bolt_content as C, bolt_field as F WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
 
         $connection = $this->manager->getConnection();
         $statement = $connection->prepare($query);

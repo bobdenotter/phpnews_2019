@@ -1,9 +1,9 @@
 {# This file is inserted as the 'footer' of each listed record. #}
 <p class="meta">
-    {% if user %}
-        <span class="edit-link"><a href="{{ record|edit_link }}"><strong>{{ __('general.phrase.edit') }}</strong></a></span> -
-    {% endif %}
 
+    {% if user %}
+        <a href="{{ item|edit_link }}" class="btn btn-light btn-sm">{{ __('general.phrase.edit') }} № {{ item.id }}</a>
+    {% endif %}
 
     {% if record.source %}
         <a href="{{ record.source }}" target="_blank" title="{{ record|title }}">&para;</a>

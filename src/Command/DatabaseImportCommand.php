@@ -28,6 +28,8 @@ class DatabaseImportCommand extends Command
     /** @var Config */
     private $boltConfig;
 
+    private $counter = 1;
+
     /** @var \Bolt\Repository\TaxonomyRepository */
     private $taxonomyRepository;
 
@@ -94,7 +96,7 @@ class DatabaseImportCommand extends Command
             $content = $contentRepository->findOneByFieldValue('itemid', $item['itemid']);
 
             if (!$content) {
-                echo " - [new] ". $item['title'] . "\n";
+                echo " - " . $this->counter++ . " [new] " . $item['title'] . "\n";
                 $content = new Content($contentTypeDefinition);
                 $content->setStatus('published');
                 $content->setAuthor($user);
@@ -129,6 +131,8 @@ class DatabaseImportCommand extends Command
             }
 
             $this->objectManager->persist($content);
+
+
             $this->objectManager->flush();
 
         }
