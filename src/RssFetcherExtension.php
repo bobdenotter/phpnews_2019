@@ -94,7 +94,7 @@ class RssFetcherExtension extends BaseExtension
         $user = $userRepository->findOneBy(['username' => 'admin']);
         $contentTypeDefinition = $this->getBoltConfig()->getContentType('feeditems');
 
-        echo "## Feed: $name <small>{$feed['feed']}</small>\n";
+        echo "\n\n## Feed: $name <small>{$feed['feed']}</small>\n\n";
 
         /** @var Item $item */
         foreach($items as $item) {
@@ -206,9 +206,7 @@ class RssFetcherExtension extends BaseExtension
             $this->verbose = true;
         }
 
-        if ($request->get('amount')) {
-            $this->amount = $request->get('amount', $this->getConfig()->get('itemAmount'), 5);
-        }
+        $this->amount = $request->get('amount', $this->getConfig()->get('itemAmount'), 5);
 
         if ($onlyFeed) {
             if (isset($feeds[$onlyFeed])) {
@@ -220,7 +218,8 @@ class RssFetcherExtension extends BaseExtension
 
         foreach ($feeds as $name => $feed) {
 
-            if (isset($feed['skip']) && $feed['skip'] == 'true') {
+            if (isset($feed['active']) && $feed['active'] == false) {
+                echo "\n\n## Skip: $name \n\n";
                 continue;
             }
 
