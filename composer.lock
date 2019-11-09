@@ -312,16 +312,16 @@
         },
         {
             "name": "bolt/assets",
-            "version": "4.0.0-beta.4.1",
+            "version": "4.0.0-beta.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/assets.git",
-                "reference": "677690584aa9aeb3e1779b6564ede10f9fadf308"
+                "reference": "c5f371d25b79b38836d7667d1f19a56b08b9a0e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/assets/zipball/677690584aa9aeb3e1779b6564ede10f9fadf308",
-                "reference": "677690584aa9aeb3e1779b6564ede10f9fadf308",
+                "url": "https://api.github.com/repos/bolt/assets/zipball/c5f371d25b79b38836d7667d1f19a56b08b9a0e3",
+                "reference": "c5f371d25b79b38836d7667d1f19a56b08b9a0e3",
                 "shasum": ""
             },
             "require-dev": {
@@ -339,7 +339,7 @@
                 }
             ],
             "description": "🛠 Assets used in Bolt's backend. Do not use directly.",
-            "time": "2019-11-03T18:05:41+00:00"
+            "time": "2019-11-04T20:57:45+00:00"
         },
         {
             "name": "bolt/common",
@@ -395,16 +395,16 @@
         },
         {
             "name": "bolt/core",
-            "version": "4.0.0-beta.4.1",
+            "version": "4.0.0-beta.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/core.git",
-                "reference": "54fcaf7eb5f89bb5c236839750f12dadde5e0446"
+                "reference": "1d35f06a522f2685ebd1543da8259958b92c5afa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/core/zipball/54fcaf7eb5f89bb5c236839750f12dadde5e0446",
-                "reference": "54fcaf7eb5f89bb5c236839750f12dadde5e0446",
+                "url": "https://api.github.com/repos/bolt/core/zipball/1d35f06a522f2685ebd1543da8259958b92c5afa",
+                "reference": "1d35f06a522f2685ebd1543da8259958b92c5afa",
                 "shasum": ""
             },
             "require": {
@@ -527,7 +527,7 @@
                 "MIT"
             ],
             "description": "🧿 Bolt 4 Core",
-            "time": "2019-11-03T17:41:57+00:00"
+            "time": "2019-11-04T20:12:42+00:00"
         },
         {
             "name": "bolt/newswidget",
@@ -940,24 +940,24 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.3.3",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "46867cbf8ca9fb8d60c506895449eb799db1184f"
+                "reference": "cbe23383749496fe0f373345208b79568e4bc248"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/46867cbf8ca9fb8d60c506895449eb799db1184f",
-                "reference": "46867cbf8ca9fb8d60c506895449eb799db1184f",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/cbe23383749496fe0f373345208b79568e4bc248",
+                "reference": "cbe23383749496fe0f373345208b79568e4bc248",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.2 || ^7.0",
+                "php": "^5.3.2 || ^7.0 || ^8.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8"
             },
             "type": "library",
             "autoload": {
@@ -975,12 +975,12 @@
                     "email": "john-stevenson@blueyonder.co.uk"
                 }
             ],
-            "description": "Restarts a process without xdebug.",
+            "description": "Restarts a process without Xdebug.",
             "keywords": [
                 "Xdebug",
                 "performance"
             ],
-            "time": "2019-05-27T17:52:04+00:00"
+            "time": "2019-11-06T16:40:04+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -3442,16 +3442,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.25.3",
+            "version": "2.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "d07636581795383e2fea2d711212d30f941f2039"
+                "reference": "e01ecc0b71168febb52ae1fdc1cfcc95428e604e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d07636581795383e2fea2d711212d30f941f2039",
-                "reference": "d07636581795383e2fea2d711212d30f941f2039",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e01ecc0b71168febb52ae1fdc1cfcc95428e604e",
+                "reference": "e01ecc0b71168febb52ae1fdc1cfcc95428e604e",
                 "shasum": ""
             },
             "require": {
@@ -3505,7 +3505,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-10-20T11:05:44+00:00"
+            "time": "2019-10-21T21:32:25+00:00"
         },
         {
             "name": "nicolus/picofeed",
@@ -3570,16 +3570,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.5",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "b76bbc3c51f22c570648de48e8c2d941ed5e2cf2"
+                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/b76bbc3c51f22c570648de48e8c2d941ed5e2cf2",
-                "reference": "b76bbc3c51f22c570648de48e8c2d941ed5e2cf2",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
                 "shasum": ""
             },
             "require": {
@@ -3587,7 +3587,7 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "0.0.4",
+                "ircmaxell/php-yacc": "0.0.5",
                 "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
@@ -3596,7 +3596,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -3618,7 +3618,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-10-25T18:33:07+00:00"
+            "time": "2019-11-08T13:50:10+00:00"
         },
         {
             "name": "nyholm/nsa",
@@ -6052,16 +6052,16 @@
         },
         {
             "name": "symfony/http-client-contracts",
-            "version": "v1.1.7",
+            "version": "v1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "353b2a3e907e5c34cf8f74827a4b21eb745aab1d"
+                "reference": "088bae75cfa2ec5eb6d33dce17dbd8613150ce6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/353b2a3e907e5c34cf8f74827a4b21eb745aab1d",
-                "reference": "353b2a3e907e5c34cf8f74827a4b21eb745aab1d",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/088bae75cfa2ec5eb6d33dce17dbd8613150ce6e",
+                "reference": "088bae75cfa2ec5eb6d33dce17dbd8613150ce6e",
                 "shasum": ""
             },
             "require": {
@@ -6105,7 +6105,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-09-26T22:09:58+00:00"
+            "time": "2019-11-07T12:44:51+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -7722,16 +7722,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v1.1.7",
+            "version": "v1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "ffcde9615dc5bb4825b9f6aed07716f1f57faae0"
+                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffcde9615dc5bb4825b9f6aed07716f1f57faae0",
-                "reference": "ffcde9615dc5bb4825b9f6aed07716f1f57faae0",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
+                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
                 "shasum": ""
             },
             "require": {
@@ -7776,20 +7776,20 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-09-17T11:12:18+00:00"
+            "time": "2019-10-14T12:27:06+00:00"
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v3.3.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "6b895bc0a5e815d1bf2d444869415a7c752516aa"
+                "reference": "defa9bdfc0191ed70b389cb93c550c6c82cf1745"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/6b895bc0a5e815d1bf2d444869415a7c752516aa",
-                "reference": "6b895bc0a5e815d1bf2d444869415a7c752516aa",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/defa9bdfc0191ed70b389cb93c550c6c82cf1745",
+                "reference": "defa9bdfc0191ed70b389cb93c550c6c82cf1745",
                 "shasum": ""
             },
             "require": {
@@ -7841,7 +7841,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2019-10-20T12:05:18+00:00"
+            "time": "2019-11-07T21:01:35+00:00"
         },
         {
             "name": "symfony/translation",
@@ -9296,16 +9296,16 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.14.1",
+            "version": "v1.14.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "f7dd84691dbf399137a5caafc90f419801d09e5f"
+                "reference": "c864e7f9b8d1e1f5f60acc3beda11299f637aded"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/f7dd84691dbf399137a5caafc90f419801d09e5f",
-                "reference": "f7dd84691dbf399137a5caafc90f419801d09e5f",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/c864e7f9b8d1e1f5f60acc3beda11299f637aded",
+                "reference": "c864e7f9b8d1e1f5f60acc3beda11299f637aded",
                 "shasum": ""
             },
             "require": {
@@ -9360,7 +9360,7 @@
                 "scaffold",
                 "scaffolding"
             ],
-            "time": "2019-11-01T19:39:59+00:00"
+            "time": "2019-11-07T00:56:03+00:00"
         },
         {
             "name": "symfony/stopwatch",
