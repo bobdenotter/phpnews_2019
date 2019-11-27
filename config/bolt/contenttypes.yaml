@@ -23,7 +23,7 @@ feeditems:
         content:
             type: html
         raw:
-            type: textarea
+            type: data
         source:
             type: text
             variant: inline

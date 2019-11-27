@@ -1,0 +1,64 @@
+/* Image holder */
+div.imageholder {
+
+    img {
+        border: 1px solid #ccc;
+        padding: 0rem;
+        margin: 1rem 0;
+        display: block;
+
+    }
+
+    small {
+        display: block;
+        text-align: center;
+        font-size: 1.0rem;
+        margin: 1rem 0;
+        font-style: italic;
+    }
+}
+
+.main a {
+	text-decoration: underline;
+	text-decoration-color: lighten($link, 30);
+}
+
+.main a:hover {
+	color: $link-hover;
+	text-decoration-color: lighten($link-hover, 20);
+}
+
+p.meta {
+
+    font-size: 0.95rem;
+    color: #666;
+
+    img {
+        height: 2.3rem;
+        vertical-align: middle;
+        padding-bottom: 0.1rem;
+    }
+}
+
+
+footer {
+    p {
+        padding-top: 80px;
+        margin: 0;
+        float: right;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+nav.pagination {
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+}
