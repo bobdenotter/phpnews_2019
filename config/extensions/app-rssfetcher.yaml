@@ -525,7 +525,7 @@ feeds:
   web-design-weekly:
     url: https://web-design-weekly.com
     name: Web Design Weekly
-    feed: https://web-design-weekly.com/feed/
+    feed: https://web-design-weekly.com/rss.xml
     title: Web Design Weekly
   wesbos:
     url: https://wesbos.com

@@ -1776,7 +1776,7 @@
     <unit id="hXEFV1n" name="listing.title_last_seen">
       <segment>
         <source>listing.title_last_seen</source>
-        <target>Last seen</target>
+        <target>Last registered</target>
       </segment>
     </unit>
     <unit id="pn7kE17" name="listing.title_last_ip">
@@ -1975,6 +1975,60 @@
       <segment>
         <source>user.disabled_successfully</source>
         <target>User has been disabled successfully!</target>
+      </segment>
+    </unit>
+    <unit id="Npkio79" name="listing.title_session_expires">
+      <segment>
+        <source>listing.title_session_expires</source>
+        <target>Session expires</target>
+      </segment>
+    </unit>
+    <unit id="mmUDcto" name="listing.title_ip_address">
+      <segment>
+        <source>listing.title_ip_address</source>
+        <target>IP address</target>
+      </segment>
+    </unit>
+    <unit id="x9qAwrz" name="listing.title_browser">
+      <segment>
+        <source>listing.title_browser</source>
+        <target>Browser / platform</target>
+      </segment>
+    </unit>
+    <unit id="FqVh1Hv" name="image.button_remove">
+      <segment>
+        <source>image.button_remove</source>
+        <target>Remove</target>
+      </segment>
+    </unit>
+    <unit id="eHV6ZJB" name="image.button_edit_attributes">
+      <segment>
+        <source>image.button_edit_attributes</source>
+        <target>Edit attributes</target>
+      </segment>
+    </unit>
+    <unit id="s14vS9S" name="image.button_move_up">
+      <segment>
+        <source>image.button_move_up</source>
+        <target>Move up</target>
+      </segment>
+    </unit>
+    <unit id="xoOPAPl" name="image.button_move_down">
+      <segment>
+        <source>image.button_move_down</source>
+        <target>Move down</target>
+      </segment>
+    </unit>
+    <unit id="Oj2UZ5J" name="image.add_new_image">
+      <segment>
+        <source>image.add_new_image</source>
+        <target>Add new image</target>
+      </segment>
+    </unit>
+    <unit id="8Q4FxVw" name="file.add_new_file">
+      <segment>
+        <source>file.add_new_file</source>
+        <target>Add new file</target>
       </segment>
     </unit>
   </file>

@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\RssFetcherExtension;
+use Bolt\Configuration\Config;
 use Bolt\Extension\ExtensionRegistry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -20,7 +21,7 @@ class FetchCommand extends Command
      */
     private $extensionRegistry;
 
-    public function __construct(ExtensionRegistry $extensionRegistry)
+    public function __construct(ExtensionRegistry $extensionRegistry, Config $config)
     {
         $this->extensionRegistry = $extensionRegistry;
         parent::__construct();

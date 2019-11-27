@@ -166,6 +166,10 @@ class RssFetcherExtension extends BaseExtension
 
             $this->getStopwatch()->stop('ext.storage.persist');
 
+            // If this item is stale, let's assume the rest are too.
+            if (!$new) {
+                break;
+            }
 
         }
         $this->getStopwatch()->stop('ext.storage');

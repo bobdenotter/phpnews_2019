@@ -2,7 +2,7 @@
 # in the project root. 
 
 # The name of the website
-sitename: Bolt Project Website
+sitename: PHPnews.io
 payoff: The amazing payoff goes here
 
 secret: '%env(APP_SECRET)%'
