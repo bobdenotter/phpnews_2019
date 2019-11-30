@@ -163,10 +163,10 @@ class RssFetcherExtension extends BaseExtension
 
             $om->persist($content);
 
-            if ($this->verbose) {
-                dump($item);
-                dump($content);
-            }
+            // if ($this->verbose) {
+            //     dump($item);
+            //     dump($content);
+            // }
 
             $this->getStopwatch()->stop('ext.storage.persist');
 
