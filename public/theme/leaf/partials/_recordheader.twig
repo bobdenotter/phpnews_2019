@@ -1,0 +1,12 @@
+{% set feed = getFeedsConfig(record) %}
+<p class="meta">
+    <img src="{{ asset('assets/leaf_small.svg') }}">
+
+    {% if user %}
+        <span class="edit-link"><a href="{{ record|edit_link }}"><strong>{{ __('general.phrase.edit') }}</strong></a></span> -
+    {% endif %}
+
+    Written by <a href="{{ feeds.sitesource|default(feed.url) }}">{{ record.sitetitle|default(feed.name) }}</a>
+    / <a href="{{ record.source }}">Original link</a>
+    on <a href="{{ record|link }}">{{ record.publishedAt|localedatetime("%b. %e, %Y") }}</a>{# %A #}
+</p>

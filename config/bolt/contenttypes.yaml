@@ -101,41 +101,31 @@ feeditems:
 # list the different types of services a company provides, you can group these
 # together.
 
-#pages:
-#    name: Pages
-#    singular_name: Page
-#    fields:
-#        title:
-#            type: text
-#            class: large
-#            group: content
-#        slug:
-#            type: slug
-#            uses: title
-#        image:
-#            type: image
-#            label: "Eén plaatje"
-#            placeholder: https://source.unsplash.com/1280x768/?business,workplace/__random__
-#        teaser:
-#            type: html
-#            height: 150px
-#        marky:
-#            type: markdown
-#        body:
-#            type: html
-#            height: 300px
-#            allowtwig: true
-#        textarea:
-#            type: textarea
-#            postfix: "This is a plain text area. the contents will <em><strong>not</em></strong> be processed."
-#        checkbox:
-#            type: checkbox
-#            label: "This is a checkbox"
-#        template:
-#            type: templateselect
-#            filter: '*.twig'
-#    taxonomy: [ groups ]
-#    recordsperpage: 5
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        image:
+            type: image
+            label: "Eén plaatje"
+            placeholder: https://source.unsplash.com/1280x768/?business,workplace/__random__
+        teaser:
+            type: html
+            height: 300px
+            allowtwig: true
+        body:
+            type: html
+            height: 300px
+            allowtwig: true
+    taxonomy: [ groups ]
+    recordsperpage: 5
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a

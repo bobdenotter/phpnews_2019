@@ -29,9 +29,9 @@ div.imageholder {
 }
 
 p.meta {
-
     font-size: 0.95rem;
     color: #666;
+    margin-bottom: $baseline * 0.5;
 
     img {
         height: 2.3rem;
@@ -61,4 +61,24 @@ nav.pagination {
     a:hover {
         text-decoration: none !important;
     }
+}
+
+// The "callout" for fresh installs
+.callout {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+aside, header {
+    ul {
+        margin: 0 0 1rem;
+        list-style-type: none;
+    }
+}
+
+aside p, aside li {
+    font-size: 90%;
+    line-height: $baseline * 0.9;
 }

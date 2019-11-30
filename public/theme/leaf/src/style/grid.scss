@@ -1,10 +1,9 @@
-.sidebar {
-    grid-area: sidebar;
+aside {
+    grid-area: aside;
 }
 
-.main {
+main {
     grid-area: main;
-    position: relative;
 }
 
 header {
@@ -21,33 +20,33 @@ footer {
     grid-template-areas:
         "header"
         "main"
-        "sidebar"
+        "aside"
         "footer";
-    max-width: 1124px;
+    max-width: 600px;
     padding: 0 1rem;
     margin: auto;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 800px) {
         display: grid;
         grid-gap: 3rem;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
-            "header   header  header"
-            "sidebar  main    main"
-            "footer   footer  footer";
+            "header  header  header"
+            "aside   main    main"
+            "footer  footer  footer";
         max-width: 1124px;
         padding: 0 2rem;
         margin: auto;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1050px) {
         display: grid;
-        grid-gap: 6rem;
+        grid-gap: 4rem 6rem;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
-            "header   header  header"
-            "sidebar  main    main"
-            "footer   footer  footer";
+            "header  header  header"
+            "aside   main    main"
+            "footer  footer  footer";
         max-width: 1124px;
         padding: 0 2rem;
         margin: auto;
@@ -55,8 +54,28 @@ footer {
 }
 
 
+body.no-aside {
+    .container {
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+
+        @media screen and (min-width: 800px) {
+            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-areas:
+                "header  header  header"
+                ".       main    ."
+                "footer  footer  footer";
+        }
+    }
+
+    aside {
+        display: none;
+    }
+}
+
 .main > h1, .main > h2, .main > h3, .main > h4,
-.sidebar > h1, .sidebar > h2, .sidebar > h3, .sidebar > h4,
-article > h2 {
+.sidebar > h1, .sidebar > h2, .sidebar > h3, .sidebar > h4 {
     margin-top: 0;
 }

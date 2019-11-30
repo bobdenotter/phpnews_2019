@@ -26,6 +26,9 @@ class RssFetcherExtension extends BaseExtension
 
     private $amount;
 
+    /** @var Collection */
+    private $feeds;
+
     public function getName(): string
     {
         return "RSS Fetcher extension";
@@ -40,8 +43,6 @@ class RssFetcherExtension extends BaseExtension
 
     public function getFeed(array $feedDetails)
     {
-        $config = $this->getConfig();
-
         $this->getStopwatch()->start('ext.fetch');
 
         $feedItems = $this->fetchFeed($feedDetails);
@@ -82,7 +83,7 @@ class RssFetcherExtension extends BaseExtension
         return $feed->getItems();
     }
 
-    public function updateItems(string $name, array $feed, array $items)
+    public function updateItems(string $name, array $feed, array $items, ?string $onlyFeed = null)
     {
         $this->getStopwatch()->start('ext.storage');
 
@@ -94,7 +95,7 @@ class RssFetcherExtension extends BaseExtension
         $user = $userRepository->findOneBy(['username' => 'admin']);
         $contentTypeDefinition = $this->getBoltConfig()->getContentType('feeditems');
 
-        echo "\n\n## Feed: $name <small>{$feed['feed']}</small>\n\n";
+        echo "\n\n## Feed: $name <small>{$feed['feed']} / {$feed['last_fetched']}</small>\n\n";
 
         /** @var Item $item */
         foreach($items as $item) {
@@ -167,7 +168,7 @@ class RssFetcherExtension extends BaseExtension
             $this->getStopwatch()->stop('ext.storage.persist');
 
             // If this item is stale, let's assume the rest are too.
-            if (!$new) {
+            if (!$new && !$onlyFeed) {
                 break;
             }
 
@@ -203,7 +204,7 @@ class RssFetcherExtension extends BaseExtension
 
     public function fetchAllFeeds(?string $onlyFeed = null)
     {
-        $feeds = $this->getConfig()->get('feeds');
+        $feeds = (new Collection($this->getFeedsConfigAll()))->sortBy('last_fetched')->all();
 
         $request = Request::createFromGlobals();
         if ($this->getConfig()->get('itemAmount') < 6 && $request->get('verbose')) {
@@ -223,14 +224,14 @@ class RssFetcherExtension extends BaseExtension
         foreach ($feeds as $name => $feed) {
 
             if (isset($feed['active']) && $feed['active'] == false) {
-                echo "\n\n## Skip: $name \n\n";
+//                echo "\n\n## Skip: $name \n\n";
                 continue;
             }
 
             $feedItems = $this->getFeed($feed);
 
             if ($feedItems) {
-                $this->updateItems($name, $feed, $feedItems);
+                $this->updateItems($name, $feed, $feedItems, $onlyFeed);
             }
         }
     }
@@ -329,6 +330,35 @@ class RssFetcherExtension extends BaseExtension
             }
         }
         return $image;
+    }
+
+    public function getFeedsConfigAll(): array
+    {
+        if ($this->feeds) {
+            return $this->feeds;
+        }
+
+        $feeds = $this->getConfig()->get('feeds');
+
+        $query = 'select MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as C, bolt_field as F WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
+
+        $connection = $this->getObjectManager()->getConnection();
+        $statement = $connection->prepare($query);
+        $statement->execute();
+        $this->queryResult = $statement->fetchAll();
+
+        foreach($this->queryResult as $result) {
+            $name = current(json_decode($result['value']));
+
+            if (!empty($name) && isset($feeds[$name])) {
+                $feeds[$name]['last_updated'] = $result['last_updated'];
+                $feeds[$name]['last_fetched'] = $result['last_fetched'];
+            }
+        }
+
+        $this->feeds = (new Collection($feeds))->sortByDesc('last_updated')->all();
+
+        return $this->feeds;
     }
 
 }

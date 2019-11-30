@@ -2,11 +2,7 @@
 
 {% block main %}
 
-        {# This template is used for 'listings': Generic pages that list a number of
-           records from a certain content type. These records are available as an array
-           called 'records'. In the for-loop below, we iterate over the records that
-           are on this page. It can be used for overview pages like 'all entries', or
-           'all records tagged with kittens'. #}
+{#        {{ dump(getFeedsConfig()) }}#}
 
         {# If used for listing a taxonomy, we add a heading #}
         {% if taxonomy is defined %}
@@ -19,6 +15,8 @@
             <article>
 
                 <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
+                {% include 'partials/_recordheader.twig' with { 'record': record, 'extended': true } %}
+
 
                 {% if record|image %}
                     <a href="{{ record|image }}">
@@ -26,7 +24,7 @@
                     </a>
                 {% endif %}
 
-                <p>{{ record|excerpt(300, false, search|default('')) }}</p>
+                <p>{{ record.content|excerpt(300, false, search|default('')) }}</p>
 
                 {% include 'partials/_recordfooter.twig' with { 'record': record } %}
 

@@ -1,15 +1,15 @@
 <!-- Sidebar -->
-
+<aside>
 {# The next section attempts to fill the panel in the sidebar with the contents of the
     'about'-block, if it exists. First, attempt to fetch the block by its slug #}
-{% setcontent block = "blocks/about" %}
+{% setcontent block = "pages/about" %}
 
 {# check if we have a title. If so, we know we have content to display. Otherwise, we will
     output a default text, telling the user to create the 'blocks' in the backend. #}
 {% if block.title is defined %}
 
     <h4>{{ block.title }}</h4>
-    {{ block.content }}
+    {{ block.teaser }}
 
     {% set edit_link = block|edit_link %}
     {% set content_link = block|link %}
@@ -32,31 +32,20 @@
 
 {% endif %}
 
-    {% include 'helpers/_languageselect.html.twig' with {'type': 'list'} %}
+    {% set feeds = getFeedsConfig() %}
 
-    {# The next section iterates over all of the content types, and prints a list
-        of the five latest records of each of them. The 'magic' happens in the
-        setcontent tag.. ct.slug ~ "/latest/3" concatenates the slug of the
-        content type with /latest/3, so it becomes something like "pages/latest/3".
-        The 'else' in the inner for-loop is only used if there are no 'records',
-        so we can use it to print a helpful message.
-        Lastly, "path('listing', {'contentTypeSlug': ct.slug})" will output something like '/pages',
-        effectively creating a working link to that contenttpye's listing page. #}
-
-    {% for ct in config.get('contenttypes') if not ct.viewless|default(false) %}
-
-        {% setcontent records = ct.slug ~ "/latest/3" %}
-
-        <h4>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct.name}) }}</h4>
-        <ul>
-            {% for record in records %}
-                <li><a href="{{ record|link }}">{{ record|title }}</a></li>
-            {% else %}
-                <li>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</li>
-            {% endfor %}
-        </ul>
-        <p><a href="{{ path('listing', {'contentTypeSlug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }} &raquo;</a></p>
-
+    <h4>Recent updates: </h4>
+    <ul>
+    {% for slug, feed in feeds|slice(0,15) if not feed.skip|default(false) %}
+        <li>
+            <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug|slug }) }}">{{ feed.title }}</a>
+            {% if feed.last_updated is defined %}
+                <span class="last-updated">(upd: {{ feed.last_updated|date('Y-m-d') }})</span>
+            {% endif %}
+        </li>
     {% endfor %}
+    </ul>
+    <a href="page/all-feeds">All feeds</a>
 
+</aside>
 <!-- End Sidebar -->

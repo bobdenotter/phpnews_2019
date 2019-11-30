@@ -4,6 +4,7 @@
 namespace App;
 
 
+use Bolt\Entity\Content;
 use Bolt\Extension\ExtensionRegistry;
 use Bolt\Repository\ContentRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -24,6 +25,9 @@ class RssTwigExtension extends AbstractExtension
 
     /** @var ObjectManager */
     private $manager;
+
+    /** @var Collection */
+    private $feeds;
 
     public function __construct(ExtensionRegistry $extensionRegistry, ContentRepository $contentRepository, ObjectManager $manager)
     {
@@ -53,28 +57,33 @@ class RssTwigExtension extends AbstractExtension
         return $this->config;
     }
 
-    public function getFeedsConfig()
+    public function getFeedsConfig(?Content $record = null): ?array
     {
-        $feeds = $this->getConfig()->get('feeds');
+        $feeds = $this->getFeedsConfigAll();
 
-        $query = 'select MAX(c.created_at) as last_updated, f.value from bolt_content as C, bolt_field as F WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
-
-        $connection = $this->manager->getConnection();
-        $statement = $connection->prepare($query);
-        $statement->execute();
-        $results = $statement->fetchAll();
-
-        foreach($results as $result) {
-            $name = current(json_decode($result['value']));
-
-            if (!empty($name) && isset($feeds[$name])) {
-                $feeds[$name]['last_updated'] = $result['last_updated'];
-            }
+        if (!$record) {
+            return $feeds;
         }
 
-        $feeds = (new Collection($feeds))->sortByDesc('last_updated')->all();
+        if (!$record->hasField('author')) {
+            return null;
+        }
 
-        return $feeds;
+        $author = (string) $record->getField('author');
+
+        if (array_key_exists($author, $feeds)) {
+            return $feeds[$author];
+        }
+
+        return null;
+    }
+
+    public function getFeedsConfigAll(string $sortBy = 'last_updated'): array
+    {
+        $ext = $this->extensionRegistry->getExtension('App\RssFetcherExtension');
+        $this->feeds = $ext->getFeedsConfigAll();
+
+        return $this->feeds;
     }
 
 }

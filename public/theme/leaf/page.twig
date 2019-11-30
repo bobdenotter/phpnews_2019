@@ -1,0 +1,31 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    <h1 class="title">{{ record|title }}</h1>
+
+    {% include 'partials/_image.twig' with ({'image': record|image}) %}
+
+    {{ record.body }}
+
+    {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes. #}
+{#    {{ dump(record) }}#}
+    {# #}
+
+    {% if record.slug == 'all-feeds' %}
+        {% set feeds = getFeedsConfig() %}
+
+        <ul>
+        {% for slug, feed in feeds if not feed.skip|default(false) %}
+            <li>
+                <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug|slug }) }}">{{ feed.name }}
+                    {% if feed.title != feed.name %} - {{ feed.title }}{% endif %}</a>
+                {% if feed.last_updated is defined %}
+                    <span class="last-updated">(<a href="{{ feed.url }}" target="_blank">link</a>, upd: {{ feed.last_updated|date('Y-m-d') }})</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+        <ul>
+
+    {% endif %}
+
+{% endblock main %}

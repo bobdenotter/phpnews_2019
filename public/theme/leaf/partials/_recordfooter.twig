@@ -8,23 +8,6 @@
     </p>
 {% endif %}
 
-<p class="meta">
-    <img src="{{ asset('assets/leaf_small.svg') }}">
-
-    {% if user %}
-        <span class="edit-link"><a href="{{ record|edit_link }}"><strong>{{ __('general.phrase.edit') }}</strong></a></span> -
-    {% endif %}
-
-    {% if extended|default %}
-    <a href="{{ record|link }}">{{ __('general.phrase.permalink') }}</a> -
-    {% endif %}
-
-    {{ __('general.phrase.written-by-on', {
-        '%name%': record.author.displayName|default(__('Unknown')),
-        '%date%': record.publishedAt|localedatetime("%A %B %e, %Y")
-    }) }}
-</p>
-
 {% if extended|default %}
 
     {% set previous = previous_record(record, byColumn='id') %}
