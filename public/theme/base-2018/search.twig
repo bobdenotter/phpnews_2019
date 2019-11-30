@@ -61,10 +61,12 @@
                     <p>{{ record|excerpt(300, false, search|default('')) }}</p>
                 </div>
             </div>
-            {% if record|image is not empty %}
+            {% if record|image %}
             <div class="media-right column">
                 <figure class="image">
-                    <img src="{{ record|image(480, 320, "r") }}" alt="{{ record|image.alt|default() }}" />
+                    <a href="{{ record|image }}">
+                        <img src="{{ thumbnail(record, 400, 260) }}" alt="{{ (record|image).alt|default(record|title) }}">
+                    </a>
                 </figure>
             </div>
             {% endif %}
@@ -72,13 +74,15 @@
 
         {% else %}
 
-        <article role="article" class="media">
-            <div class="media-content">
-                <div class="content">
-                    <p>{{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}</p>
-                </div>
+            <div class="content">
+                <p>
+                {% if searchTerm is not empty %}
+                    {{ __('general.phrase.no-search-results-for', { '%search%': searchTerm|escape }) }}
+                {% else %}
+                    {{ __('general.phrase.no-search-term-provided') }}
+                {% endif %}
+                </p>
             </div>
-        </article>
 
         {% endfor %}
 

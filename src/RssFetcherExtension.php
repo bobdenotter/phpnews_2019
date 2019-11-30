@@ -348,7 +348,7 @@ class RssFetcherExtension extends BaseExtension
 
         $feeds = $this->getConfig()->get('feeds');
 
-        $query = 'select MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as C, bolt_field as F WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
+        $query = 'select MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as c, bolt_field as f WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
 
         $connection = $this->getObjectManager()->getConnection();
         $statement = $connection->prepare($query);
