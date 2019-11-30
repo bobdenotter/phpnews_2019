@@ -17,10 +17,9 @@
                 <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
                 {% include 'partials/_recordheader.twig' with { 'record': record, 'extended': true } %}
 
-
-                {% if record|image %}
-                    <a href="{{ record|image }}">
-                        <img src="{{ thumbnail(record, 800, 600, fit='crop') }}" alt="{{ (record|image).alt|default(record|title) }}">
+                {% if record.image and record.image|split('.')|last in ['jpg', 'jpeg', 'png', 'gif'] %}
+                    <a href="{{ record.image }}">
+                        <img src="{{ record.image }}" alt="">
                     </a>
                 {% endif %}
 

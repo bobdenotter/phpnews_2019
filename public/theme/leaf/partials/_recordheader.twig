@@ -6,7 +6,11 @@
         <span class="edit-link"><a href="{{ record|edit_link }}"><strong>{{ __('general.phrase.edit') }}</strong></a></span> -
     {% endif %}
 
-    Written by <a href="{{ feeds.sitesource|default(feed.url) }}">{{ record.sitetitle|default(feed.name) }}</a>
+    {% if feed %}
+        Written by <a href="{{ feed.url|default('unknown') }}">{{ feed.name }}</a>
+    {% else %}
+        Written by <a href="{{ record.sitesource|default('unknown') }}">{{ record.sitetitle|default('unknown') }}</a>
+    {% endif %}
     / <a href="{{ record.source }}">Original link</a>
-    on <a href="{{ record|link }}">{{ record.publishedAt|localedatetime("%b. %e, %Y") }}</a>{# %A #}
+    on <a href="{{ record|link }}">{{ record.publishedAt|localedatetime("%b. %e, %Y") }}</a>
 </p>

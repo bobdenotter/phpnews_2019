@@ -98,3 +98,23 @@ blockquote {
 	padding: 0.5rem 1rem;
 	margin-bottom: 1rem;
 }
+
+
+// Fix Prism styles.
+code[class*="language-"], code, pre {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+pre {
+	.tag {
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		display: inherit;
+		font-size: inherit;
+	}
+	.number {
+		font-size: 1em;
+	}
+}

@@ -10,6 +10,7 @@ use Bolt\Entity\User;
 use Bolt\Extension\BaseExtension;
 use Bolt\Repository\TaxonomyRepository;
 use Bolt\Repository\UserRepository;
+use PicoFeed\Config\Config;
 use PicoFeed\Parser\Item;
 use PicoFeed\Reader\Reader;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +25,7 @@ class RssFetcherExtension extends BaseExtension
     /** @var bool */
     private $verbose = false;
 
-    private $amount;
+    private $amountOfItems;
 
     /** @var Collection */
     private $feeds;
@@ -49,14 +50,16 @@ class RssFetcherExtension extends BaseExtension
 
         $this->getStopwatch()->stop('ext.fetch');
 
-        return array_slice($feedItems, 0, $this->amount);
+        return array_slice($feedItems, 0, $this->amountOfItems);
 
     }
 
     private function fetchFeed(array $feedDetails)
     {
+        $config = new Config();
+        $config->setFilterWhitelistedTags($this->allowedTags());
 
-        $reader = new Reader();
+        $reader = new Reader($config);
 
         try {
             $resource = $reader->download($feedDetails['feed']);
@@ -211,7 +214,8 @@ class RssFetcherExtension extends BaseExtension
             $this->verbose = true;
         }
 
-        $this->amount = $request->get('amount', $this->getConfig()->get('itemAmount'), 5);
+        $this->amountOfItems = $request->get('amount', $this->getConfig()->get('itemAmount'), 5);
+        $this->amountOfFeeds = $this->getConfig()->get('feedsAmount', 6);
 
         if ($onlyFeed) {
             if (isset($feeds[$onlyFeed])) {
@@ -226,6 +230,10 @@ class RssFetcherExtension extends BaseExtension
             if (isset($feed['active']) && $feed['active'] == false) {
 //                echo "\n\n## Skip: $name \n\n";
                 continue;
+            }
+
+            if ($this->amountOfFeeds-- <= 0) {
+                break;
             }
 
             $feedItems = $this->getFeed($feed);
@@ -361,4 +369,40 @@ class RssFetcherExtension extends BaseExtension
         return $this->feeds;
     }
 
+    public function allowedTags(): array
+    {
+        return [
+            'a' => [ 'href', 'name', 'target' ],
+            'b' => [],
+            'blockquote' => ['cite'],
+            'br' => [],
+            'caption' => [],
+            'code' => ['class'],
+            'div',
+            'em' => [],
+            'h1' => [],
+            'h2' => [],
+            'h3' => [],
+            'h4' => [],
+            'h5' => [],
+            'h6' => [],
+            'hr' => [],
+            'i' => [],
+            'img' => ['src', 'title'],
+            'iframe' => ['src'],
+            'li' => [],
+            'nl' => [],
+            'p' => [],
+            'pre' => ['class'],
+            'strike' => [],
+            'strong' => [],
+            'table' => [],
+            'tbody' => [],
+            'td' => [],
+            'th' => [],
+            'thead' => [],
+            'tr' => ['rowspan', 'colspan'],
+            'ul' => []
+        ];
+    }
 }
