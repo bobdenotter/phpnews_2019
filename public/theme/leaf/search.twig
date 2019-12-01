@@ -25,7 +25,7 @@
         <form method="get" action="{{ path('search') }}" id="searchform-main" enctype="text/plain" role="search">
             <div class="field has-addons">
                 <div class="control">
-                    <input type="search" value="{{ searchTerm|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="searchTerm" class="input" role="search">
+                    <input type="search" value="{{ searchTerm|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="searchTerm" class="input">
                 </div>
                 <div class="control">
                     <button type="submit" class="button is-primary">{{ __('general.phrase.search') }}</button>
