@@ -70,7 +70,4 @@ appveyor.yml
 /phpunit.xml
 ###< phpunit/phpunit ###
 
-# No Y(a)ml in root
-*.yml
-*.yaml
 
