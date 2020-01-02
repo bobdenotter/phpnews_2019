@@ -52,6 +52,9 @@ services:
     Twig\Extension\StringLoaderExtension: ~
     Doctrine\ORM\Query\Expr: ~
 
+    Bolt\Event\Subscriber\TimedPublishSubscriber:
+        arguments: [ "%bolt.table_prefix%" ]
+
     # Needed for SetContent from bolt/core
     Bolt\Storage\Query:
         calls:
