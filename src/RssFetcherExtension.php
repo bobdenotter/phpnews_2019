@@ -120,8 +120,9 @@ class RssFetcherExtension extends BaseExtension
                 $content->setAuthor($user);
                 $new = true;
                 $this->getLogger()->notice(
-                    "[RSS feed] New item added: " . $item->getTitle(),
-                    ['source' => $item->getUrl()]
+                    "[RSS feed] New item added to '" . $name ."': " . $item->getTitle(),
+                    ['source' => $item->getUrl(),
+                        'source' => $item->getUrl()]
                 );
             } else {
                 printf(" - [upd] <a href='/bolt/edit/%d'>%d</a> - %s\n",
