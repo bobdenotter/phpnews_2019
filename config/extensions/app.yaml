@@ -1,5 +1,5 @@
 cacheMaxAge: 30
-itemAmount: 20
+itemAmount: 10
 
 # Number of "longest ago updated" feeds to run on each 'tick' of the cron
 feedsAmount: 10
@@ -648,7 +648,11 @@ feeds:
     name: Patrick Louys
     feed: https://patricklouys.com/feed.xml
     title: A software development blog
-
+  nehalist:
+    url: https://nehalist.io/
+    name: Nehalist.io
+    title: Nehalist.io
+    feed: https://nehalist.io/rss.xml
 
   # Frontend stuff
 

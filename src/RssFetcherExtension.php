@@ -42,19 +42,22 @@ class RssFetcherExtension extends BaseExtension
 //        $this->registerTwigExtension($ext);
     }
 
-    public function getFeed(array $feedDetails)
+    public function getFeed(array $feedDetails, ?bool $feedOnly): array
     {
         $this->getStopwatch()->start('ext.fetch');
 
-        $feedItems = $this->fetchFeed($feedDetails);
+        $feedItems = $this->fetchFeed($feedDetails, $feedOnly);
 
         $this->getStopwatch()->stop('ext.fetch');
 
-        return array_slice($feedItems, 0, $this->amountOfItems);
+        if ($feedOnly) {
+            return $feedItems;
+        }
 
+        return array_slice($feedItems, 0, $this->amountOfItems);
     }
 
-    private function fetchFeed(array $feedDetails)
+    private function fetchFeed(array $feedDetails): array
     {
         $config = new Config();
         $config->setFilterWhitelistedTags($this->allowedTags());
@@ -97,8 +100,9 @@ class RssFetcherExtension extends BaseExtension
 
         $user = $userRepository->findOneBy(['username' => 'admin']);
         $contentTypeDefinition = $this->getBoltConfig()->getContentType('feeditems');
+        $updated = $feed['last_fetched'] ?? 'never';
 
-        echo "\n\n## Feed: $name <small>{$feed['feed']} / {$feed['last_fetched']}</small>\n\n";
+        echo "\n\n## Feed: $name <small>{$feed['feed']} / $updated</small>\n\n";
 
         /** @var Item $item */
         foreach($items as $item) {
@@ -232,7 +236,6 @@ class RssFetcherExtension extends BaseExtension
         foreach ($feeds as $name => $feed) {
 
             if (isset($feed['active']) && $feed['active'] == false) {
-//                echo "\n\n## Skip: $name \n\n";
                 continue;
             }
 
@@ -240,10 +243,10 @@ class RssFetcherExtension extends BaseExtension
                 break;
             }
 
-            $feedItems = $this->getFeed($feed);
+            $feedItems = $this->getFeed($feed, (bool) $onlyFeed);
 
             if ($feedItems) {
-                $this->updateItems($name, $feed, $feedItems, $onlyFeed);
+                $this->updateItems($name, $feed, $feedItems, (bool) $onlyFeed);
             }
         }
     }

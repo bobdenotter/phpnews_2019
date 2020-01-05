@@ -31,7 +31,7 @@ class FetchCommand extends Command
     {
         $this
             ->setDescription('Add a short description for your command')
-            ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
+            ->addArgument('onlyfeed', InputArgument::OPTIONAL, 'Fetch only this feed')
             ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
@@ -42,7 +42,7 @@ class FetchCommand extends Command
 
         $rss = $this->extensionRegistry->getExtension(RssFetcherExtension::class);
 
-        $rss->fetchAllFeeds();
+        $rss->fetchAllFeeds($input->getArgument('onlyfeed'));
 
         $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
     }
