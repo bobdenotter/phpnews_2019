@@ -2,7 +2,7 @@
 
 {% block main %}
 
-{#        {{ dump(getFeedsConfig()) }}#}
+    {% set config = getFeedsConfig()  %}
 
         {# If used for listing a taxonomy, we add a heading #}
         {% if taxonomy is defined %}
@@ -12,21 +12,42 @@
         {% endif %}
 
         {% for record in records %}
-            <article>
+            {% set authorslug = record.fields.author.value|first %}
+            {% if config[authorslug] is defined %}
+                {% set author = config[authorslug] %}
+            {% else %}
+                {% set author = false %}
+            {% endif %}
+            {% set compact = author and author.compact|default(false) %}
+            <article class="{{ compact ? 'compact' }}">
 
-                <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
-                {% include 'partials/_recordheader.twig' with { 'record': record, 'extended': true } %}
+                {% if compact %}
 
-                {% if record.image and record.image|split('.')|last in ['jpg', 'jpeg', 'png', 'gif'] %}
-                    <a href="{{ record.image }}">
-                        <img src="{{ record.image }}" alt="">
-                    </a>
+                    <h3><a href="{{ record|link }}">{{ record|title }}</a></h3>
+                    {% include 'partials/_recordheader.twig' with { 'record': record, 'extended': false } %}
+
+                    {% if record.image and record.image|split('.')|last in ['jpg', 'jpeg', 'png', 'gif'] %}
+                        <a href="{{ record.image }}">
+                            <img src="{{ record.image }}" alt="">
+                        </a>
+                    {% endif %}
+
+                    <p>{{ record.content|excerpt(200, false, search|default('')) }}</p>
+
+                {% else %}
+
+                    <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
+                    {% include 'partials/_recordheader.twig' with { 'record': record, 'extended': true } %}
+
+                    {% if record.image and record.image|split('.')|last in ['jpg', 'jpeg', 'png', 'gif'] %}
+                        <a href="{{ record.image }}">
+                            <img src="{{ record.image }}" alt="">
+                        </a>
+                    {% endif %}
+
+                    <p>{{ record.content|excerpt(300, false, search|default('')) }}</p>
+
                 {% endif %}
-
-                <p>{{ record.content|excerpt(300, false, search|default('')) }}</p>
-
-                {% include 'partials/_recordfooter.twig' with { 'record': record } %}
-
             </article>
 
             {% if not loop.last %}

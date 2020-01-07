@@ -259,6 +259,7 @@ feeds:
     name: Bram.us
     feed: https://www.bram.us/feed/
     title: Bram.us
+    compact: true
   thishosting.rocks:
     url: https://thishosting.rocks/tag/php/
     name: ThisHosting.Rocks
@@ -653,6 +654,16 @@ feeds:
     name: Nehalist.io
     title: Nehalist.io
     feed: https://nehalist.io/rss.xml
+  delans:
+    url: https://sebastiaans.blog
+    title: On WordPress, Blockchain, Timestamps & Trust
+    name: Sebastiaan van der Lans
+    feed: https://sebastiaans.blog/feed/
+  tomasvotruba:
+    url: https://www.tomasvotruba.com/
+    feed: https://www.tomasvotruba.com/rss.xml
+    name: Tomáš Votruba
+    title: Tomáš Votruba
 
   # Frontend stuff
 

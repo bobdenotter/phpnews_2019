@@ -82,3 +82,21 @@ aside p, aside li {
     font-size: 90%;
     line-height: $baseline * 0.9;
 }
+
+article.compact {
+
+    h3 {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        font-size: 90%;
+        line-height: $baseline * 0.9;
+        margin-bottom: 0.5rem;
+    }
+
+    img {
+        max-width: 400px;
+    }
+}

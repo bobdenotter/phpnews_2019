@@ -355,7 +355,8 @@ class RssFetcherExtension extends BaseExtension
 
         $feeds = $this->getConfig()->get('feeds');
 
-        $query = 'select MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as c, bolt_field as f WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
+        // First pass: Get the 'last updated' and 'last_fetched' dates
+        $query = 'select COUNT(f.value) as count, MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as c, bolt_field as f WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
 
         $connection = $this->getObjectManager()->getConnection();
         $statement = $connection->prepare($query);
@@ -366,10 +367,15 @@ class RssFetcherExtension extends BaseExtension
             $name = current(json_decode($result['value']));
 
             if (!empty($name) && isset($feeds[$name])) {
+                $feeds[$name]['count'] = $result['count'];
                 $feeds[$name]['last_updated'] = $result['last_updated'];
                 $feeds[$name]['last_fetched'] = $result['last_fetched'];
             }
         }
+
+        // Second pass: Get the 'amount'
+        $query = 'select MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as c, bolt_field as f WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
+
 
         $this->feeds = (new Collection($feeds))->sortByDesc('last_updated')->all();
 

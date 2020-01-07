@@ -19,7 +19,10 @@
                 <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug|slug }) }}">{{ feed.name }}
                     {% if feed.title != feed.name %} - {{ feed.title }}{% endif %}</a>
                 {% if feed.last_updated is defined %}
-                    <span class="last-updated">(<a href="{{ feed.url }}" target="_blank">link</a>, upd: {{ feed.last_updated|date('Y-m-d') }})</span>
+                    <span class="last-updated">(<a href="{{ feed.url }}" target="_blank">link</a>,
+                        upd: {{ feed.last_updated|date('Y-m-d') }},
+                        count: {{ feed.count }})
+                    </span>
                 {% endif %}
             </li>
         {% endfor %}
