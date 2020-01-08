@@ -664,6 +664,13 @@ feeds:
     feed: https://www.tomasvotruba.com/rss.xml
     name: Tomáš Votruba
     title: Tomáš Votruba
+  strangebuzz:
+    url: https://www.strangebuzz.com/
+    feed: https://feeds.feedburner.com/strangebuzz/en
+    name: COil
+    title: Strangebuzz
+
+      
 
   # Frontend stuff
 
