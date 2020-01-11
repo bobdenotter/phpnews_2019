@@ -607,6 +607,7 @@ feeds:
     url: https://www.alittleofboth.com/
     title: A Little of Both
     name: Beth Tucker Long
+    active: false
     feed: https://www.alittleofboth.com/feed/
   # Feed includes no dates. Stupid Laravel:
   fideloper:

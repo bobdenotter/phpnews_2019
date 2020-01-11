@@ -2,14 +2,13 @@
 
 namespace App\Command;
 
-use App\Conimex\Import;
 use Bolt\Common\Json;
 use Bolt\Configuration\Config;
 use Bolt\Entity\Content;
 use Bolt\Entity\Taxonomy;
 use Bolt\Entity\User;
 use Carbon\Carbon;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,9 +18,9 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
 use Tightenco\Collect\Support\Collection;
 
-class DatabaseImportCommand extends Command
+class DatabaseImportCommand_bak extends Command
 {
-    protected static $defaultName = 'conimex:import';
+    protected static $defaultName = 'database:import';
 
     /** @var ObjectManager */
     private $objectManager;
@@ -34,14 +33,10 @@ class DatabaseImportCommand extends Command
     /** @var \Bolt\Repository\TaxonomyRepository */
     private $taxonomyRepository;
 
-    /** @var Import */
-    private $import;
-
-    public function __construct(EntityManagerInterface $objectManager, Config $boltConfig, Import $import)
+    public function __construct(ObjectManager $objectManager, Config $boltConfig)
     {
         $this->objectManager = $objectManager;
         $this->boltConfig = $boltConfig;
-        $this->import = $import;
 
         parent::__construct();
     }
@@ -49,8 +44,8 @@ class DatabaseImportCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Import Content from YAML into Bolt')
-            ->addArgument('arg1', InputArgument::OPTIONAL, 'filename of the file to import')
+            ->setDescription('Add a short description for your command')
+            ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
             ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
@@ -58,15 +53,20 @@ class DatabaseImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
+        $arg1 = $input->getArgument('arg1');
 
-        $this->import->setIO($io);
-
-        $filename = $input->getArgument('arg1');
-
-        if ($filename) {
-            $io->note(sprintf('You passed an argument: %s', $filename));
+        if ($arg1) {
+            $io->note(sprintf('You passed an argument: %s', $arg1));
         }
 
+        $this->import($arg1);
+
+
+        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+    }
+
+    public function import($filename)
+    {
         if (!realpath($filename)) {
             $filename = getcwd() . '/' . $filename;
         }
@@ -75,11 +75,11 @@ class DatabaseImportCommand extends Command
 
         dump($yaml['__bolt_export_meta']);
 
-        $this->import->import($yaml);
+        $this->upsert($yaml);
 
-        $io->success('Done.');
+
+
     }
-
 
     public function upsert($yaml)
     {
