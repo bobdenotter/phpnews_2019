@@ -362,7 +362,6 @@ class RssFetcherExtension extends BaseExtension
             LEFT JOIN bolt_field_translation AS T ON f.id = t.translatable_id
             WHERE f.name = \'author\' GROUP BY t.value';
 
-
         $connection = $this->getObjectManager()->getConnection();
         $statement = $connection->prepare($query);
         $statement->execute();
