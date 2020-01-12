@@ -12,7 +12,7 @@
         {% endif %}
 
         {% for record in records %}
-            {% set authorslug = record.fields.author.value|first %}
+            {% set authorslug = record.field('author').value|first %}
             {% if config[authorslug] is defined %}
                 {% set author = config[authorslug] %}
             {% else %}

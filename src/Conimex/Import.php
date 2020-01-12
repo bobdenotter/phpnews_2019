@@ -87,6 +87,8 @@ class Import
         $progressBar->setBarWidth(50);
         $progressBar->start();
 
+        $count=0;
+
         foreach ($data as $record) {
             $record = new Collection($record);
 
@@ -99,6 +101,10 @@ class Import
             }
 
             $this->importRecord($contentType, $record);
+
+            if ($count++ % 3 == 0) {
+                $this->em->clear();
+            }
 
             $progressBar->advance();
         }
@@ -156,13 +162,17 @@ class Import
 
         $content->setCreatedAt(new Carbon($record->get('createdAt', $record->get('datecreated'))));
         $content->setPublishedAt(new Carbon($record->get('publishedAt', $record->get('datepublish'))));
-        $content->setPublishedAt(new Carbon($record->get('depublishedAt', $record->get('datedepublish'))));
         $content->setModifiedAt(new Carbon($record->get('modifiedAt', $record->get('datechanged'))));
 
+        // Make sure depublishAt is `null`, and doesn't get defaulted to "now".
+        if ($record->get('depublishedAt') || $record->get('datedepublish')) {
+            $content->setDepublishedAt(new Carbon($record->get('depublishedAt', $record->get('datedepublish'))));
+        } else {
+            $content->setDepublishedAt(null);
+        }
+
         $this->em->persist($content);
-
         $this->em->flush();
-
     }
 
     private function guesstimateUser(Collection $record)

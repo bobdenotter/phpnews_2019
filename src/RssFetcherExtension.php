@@ -206,7 +206,7 @@ class RssFetcherExtension extends BaseExtension
             ]);
 
             if ($taxonomy === null) {
-                $taxonomy = Taxonomy::factory($key, $taxo['slug'], $taxo['name']);
+                $taxonomy = $this->taxonomyRepository->factory($key, $taxo['slug'], $taxo['name']);
             }
 
             $content->addTaxonomy($taxonomy);
@@ -355,8 +355,13 @@ class RssFetcherExtension extends BaseExtension
 
         $feeds = $this->getConfig()->get('feeds');
 
-        // First pass: Get the 'last updated' and 'last_fetched' dates
-        $query = 'select COUNT(f.value) as count, MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as c, bolt_field as f WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
+        // Get the count, 'last updated' and 'last_fetched' dates
+        $query = 'select COUNT(t.value) as count, MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, t.value 
+            from bolt_content as c
+            LEFT JOIN bolt_field as f ON f.content_id = c.id 
+            LEFT JOIN bolt_field_translation AS T ON f.id = t.translatable_id
+            WHERE f.name = \'author\' GROUP BY t.value';
+
 
         $connection = $this->getObjectManager()->getConnection();
         $statement = $connection->prepare($query);
@@ -372,10 +377,6 @@ class RssFetcherExtension extends BaseExtension
                 $feeds[$name]['last_fetched'] = $result['last_fetched'];
             }
         }
-
-        // Second pass: Get the 'amount'
-        $query = 'select MAX(c.created_at) as last_updated, MAX(c.modified_at) as last_fetched, f.value from bolt_content as c, bolt_field as f WHERE f.content_id = c.id and f.name = \'author\' GROUP BY f.value';
-
 
         $this->feeds = (new Collection($feeds))->sortByDesc('last_updated')->all();
 
