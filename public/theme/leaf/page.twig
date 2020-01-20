@@ -14,7 +14,7 @@
     {% if record.slug == 'all-feeds' %}
         {% set feeds = getFeedsConfig() %}
         <ul>
-        {% for slug, feed in feeds if not feed.skip|default(false) %}
+        {% for slug, feed in feeds|filter(feed => not feed.skip|default(false)) %}
             <li>
                 <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug|slug }) }}">{{ feed.name }}
                     {% if feed.title != feed.name %} - {{ feed.title }}{% endif %}</a>
