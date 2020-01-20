@@ -414,6 +414,11 @@ feeds:
     name: Joe Ferguson
     feed: https://joeferguson.me/blog/feed.atom
     title: Joe Ferguson
+  jolicode:
+    url: https://jolicode.com/blog/
+    feed: https://jolicode.com/feed
+    name: JoliCode
+    title: JoliCode
   mathiasverraes:
     url: http://verraes.net/
     name: Mathias Verraes

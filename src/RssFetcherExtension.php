@@ -68,7 +68,8 @@ class RssFetcherExtension extends BaseExtension
             $resource = $reader->download($feedDetails['feed']);
         } catch (\Exception $e) {
             echo "### Error: couldn't download " . $feedDetails['feed'] . "\n";
-            return null;
+            dump($e);
+            return [];
         }
 
         try {
