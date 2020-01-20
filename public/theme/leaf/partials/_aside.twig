@@ -36,7 +36,7 @@
 
     <h4>Recent updates: </h4>
     <ul>
-    {% for slug, feed in feeds|slice(0,15) if not feed.skip|default(false) %}
+    {% for slug, feed in feeds|slice(0,15)|filter(feed => not feed.skip|default(false)) %}
         <li>
             <a href="{{ path('taxonomy', {'taxonomyslug': 'authors', 'slug': slug|slug }) }}">{{ feed.title }}</a>
             {% if feed.last_updated is defined %}

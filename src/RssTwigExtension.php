@@ -8,6 +8,7 @@ use Bolt\Entity\Content;
 use Bolt\Extension\ExtensionRegistry;
 use Bolt\Repository\ContentRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Tightenco\Collect\Support\Collection;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -23,13 +24,13 @@ class RssTwigExtension extends AbstractExtension
     /** @var ContentRepository */
     private $contentRepository;
 
-    /** @var ObjectManager */
+    /** @var EntityManager */
     private $manager;
 
     /** @var Collection */
     private $feeds;
 
-    public function __construct(ExtensionRegistry $extensionRegistry, ContentRepository $contentRepository, ObjectManager $manager)
+    public function __construct(ExtensionRegistry $extensionRegistry, ContentRepository $contentRepository, EntityManagerInterface $manager)
     {
         $this->extensionRegistry = $extensionRegistry;
         $this->contentRepository = $contentRepository;
