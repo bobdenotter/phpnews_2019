@@ -3,7 +3,6 @@
 
 namespace App;
 
-use Bolt\Controller\Backend\BackendZone;
 use Bolt\Extension\ExtensionRegistry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Security("is_granted('ROLE_ADMIN')")
  */
-class RssFetchController extends AbstractController implements BackendZone
+class RssFetchController extends AbstractController
 {
     /** @var ExtensionRegistry */
     private $extensionRegistry;
