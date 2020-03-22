@@ -6,7 +6,7 @@
 #
 # If enabled, ALL forms will go into debug mode.
 debug:
-    enabled: true
+    enabled: false
     address: bobdenotter@gmail.com
 
 ## CSRF protection
