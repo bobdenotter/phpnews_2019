@@ -13,3 +13,6 @@ services:
     Bolt\NewsWidget\:
         resource: '../vendor/bolt/newswidget/src/*'
         exclude: '../vendor/bolt/newswidget/src/{Entity,Exception}'
+    Bolt\BoltForms\:
+        resource: '../vendor/bolt/forms/src/*'
+        exclude: '../vendor/bolt/forms/src/{Entity,Exception}'

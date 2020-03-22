@@ -11,6 +11,12 @@
 {#    {{ dump(record) }}#}
     {# #}
 
+    {% if record.slug == 'contact' %}
+
+        {{ boltform('contact') }}
+
+    {% endif %}
+
     {% if record.slug == 'all-feeds' %}
         {% set feeds = getFeedsConfig() %}
         <ul>

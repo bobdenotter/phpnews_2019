@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e34e0b07e81ef5a9be644bab87b7f97",
+    "content-hash": "85367eac0d314a0bf32b043476eb8c18",
     "packages": [
         {
             "name": "api-platform/core",
@@ -205,16 +205,16 @@
         },
         {
             "name": "bolt/assets",
-            "version": "4.0.0-rc.9",
+            "version": "4.0.0-rc.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/assets.git",
-                "reference": "660ef753f5f89a9f78a9fc9b1cc08188d5a3b764"
+                "reference": "5e07ed291ac5cbd577e3995707fb2fb7d093ab96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/assets/zipball/660ef753f5f89a9f78a9fc9b1cc08188d5a3b764",
-                "reference": "660ef753f5f89a9f78a9fc9b1cc08188d5a3b764",
+                "url": "https://api.github.com/repos/bolt/assets/zipball/5e07ed291ac5cbd577e3995707fb2fb7d093ab96",
+                "reference": "5e07ed291ac5cbd577e3995707fb2fb7d093ab96",
                 "shasum": ""
             },
             "require-dev": {
@@ -232,7 +232,7 @@
                 }
             ],
             "description": "🛠 Assets used in Bolt's backend. Do not use directly.",
-            "time": "2020-03-15T16:22:41+00:00"
+            "time": "2020-03-18T17:59:43+00:00"
         },
         {
             "name": "bolt/common",
@@ -288,16 +288,16 @@
         },
         {
             "name": "bolt/core",
-            "version": "4.0.0-rc.9",
+            "version": "4.0.0-rc.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/core.git",
-                "reference": "cf82e1cadca194253768677e6b8197e37215afe3"
+                "reference": "ee0d73cd73d8e7a0a0749817a8c165a68dab00e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/core/zipball/cf82e1cadca194253768677e6b8197e37215afe3",
-                "reference": "cf82e1cadca194253768677e6b8197e37215afe3",
+                "url": "https://api.github.com/repos/bolt/core/zipball/ee0d73cd73d8e7a0a0749817a8c165a68dab00e0",
+                "reference": "ee0d73cd73d8e7a0a0749817a8c165a68dab00e0",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,51 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-03-15T16:04:38+00:00"
+            "time": "2020-03-20T06:25:08+00:00"
+        },
+        {
+            "name": "bolt/forms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobdenotter/forms.git",
+                "reference": "1d54833a83fff472266fcc2940f808620626de86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobdenotter/forms/zipball/1d54833a83fff472266fcc2940f808620626de86",
+                "reference": "1d54833a83fff472266fcc2940f808620626de86",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.2",
+                "twig/twig": "^2.12 | ^3.0"
+            },
+            "require-dev": {
+                "bolt/core": "^4.0.0",
+                "symplify/easy-coding-standard": "^6.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "entrypoint": "Bolt\\BoltForms\\Extension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\BoltForms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bob den Otter",
+                    "email": "bobdenotter@gmail.com"
+                }
+            ],
+            "description": "📦 This Bolt extension can be used to handle forms in your Bolt 4 project.",
+            "time": "2020-02-18T20:54:28+00:00"
         },
         {
             "name": "bolt/newswidget",
@@ -476,16 +520,16 @@
         },
         {
             "name": "bolt/themes",
-            "version": "3.1.3",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/themes.git",
-                "reference": "2cb63c9c3790c02b6ed7b7dfd090aec39d908c60"
+                "reference": "0763088e29af94fecf9ea3484407973e68e243bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/themes/zipball/2cb63c9c3790c02b6ed7b7dfd090aec39d908c60",
-                "reference": "2cb63c9c3790c02b6ed7b7dfd090aec39d908c60",
+                "url": "https://api.github.com/repos/bolt/themes/zipball/0763088e29af94fecf9ea3484407973e68e243bd",
+                "reference": "0763088e29af94fecf9ea3484407973e68e243bd",
                 "shasum": ""
             },
             "require": {
@@ -515,7 +559,7 @@
                 "cms",
                 "twig"
             ],
-            "time": "2020-02-20T20:05:16+00:00"
+            "time": "2020-03-21T12:38:02+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -1876,16 +1920,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.7.1",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "445796af0e873d9bd04f2502d322a7d5009b6846"
+                "reference": "dafe298ce5d0b995ebe1746670704c0a35868a6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/445796af0e873d9bd04f2502d322a7d5009b6846",
-                "reference": "445796af0e873d9bd04f2502d322a7d5009b6846",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/dafe298ce5d0b995ebe1746670704c0a35868a6a",
+                "reference": "dafe298ce5d0b995ebe1746670704c0a35868a6a",
                 "shasum": ""
             },
             "require": {
@@ -1956,20 +2000,34 @@
                 "database",
                 "orm"
             ],
-            "time": "2020-02-15T14:35:56+00:00"
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine/orm",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-03-19T06:41:02+00:00"
         },
         {
             "name": "doctrine/persistence",
-            "version": "1.3.6",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "5dd3ac5eebef2d0b074daa4440bb18f93132dee4"
+                "reference": "0af483f91bada1c9ded6c2cfd26ab7d5ab2094e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/5dd3ac5eebef2d0b074daa4440bb18f93132dee4",
-                "reference": "5dd3ac5eebef2d0b074daa4440bb18f93132dee4",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/0af483f91bada1c9ded6c2cfd26ab7d5ab2094e0",
+                "reference": "0af483f91bada1c9ded6c2cfd26ab7d5ab2094e0",
                 "shasum": ""
             },
             "require": {
@@ -1977,7 +2035,7 @@
                 "doctrine/cache": "^1.0",
                 "doctrine/collections": "^1.0",
                 "doctrine/event-manager": "^1.0",
-                "doctrine/reflection": "^1.1",
+                "doctrine/reflection": "^1.2",
                 "php": "^7.1"
             },
             "conflict": {
@@ -2039,20 +2097,34 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2020-01-16T22:06:23+00:00"
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-03-21T15:13:52+00:00"
         },
         {
             "name": "doctrine/reflection",
-            "version": "v1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/reflection.git",
-                "reference": "bc420ead87fdfe08c03ecc3549db603a45b06d4c"
+                "reference": "b699ecc7f2784d1e49924fd9858cf1078db6b0e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/reflection/zipball/bc420ead87fdfe08c03ecc3549db603a45b06d4c",
-                "reference": "bc420ead87fdfe08c03ecc3549db603a45b06d4c",
+                "url": "https://api.github.com/repos/doctrine/reflection/zipball/b699ecc7f2784d1e49924fd9858cf1078db6b0e2",
+                "reference": "b699ecc7f2784d1e49924fd9858cf1078db6b0e2",
                 "shasum": ""
             },
             "require": {
@@ -2073,7 +2145,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -2117,7 +2189,7 @@
                 "reflection",
                 "static"
             ],
-            "time": "2020-01-08T19:53:19+00:00"
+            "time": "2020-03-21T11:34:59+00:00"
         },
         {
             "name": "drupol/composer-packages",
@@ -3144,16 +3216,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.65",
+            "version": "1.0.66",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8"
+                "reference": "021569195e15f8209b1c4bebb78bd66aa4f08c21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
-                "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/021569195e15f8209b1c4bebb78bd66aa4f08c21",
+                "reference": "021569195e15f8209b1c4bebb78bd66aa4f08c21",
                 "shasum": ""
             },
             "require": {
@@ -3226,15 +3298,11 @@
             ],
             "funding": [
                 {
-                    "url": "https://github.com/frankdejonge",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
-                    "type": "tidelift"
+                    "url": "https://offset.earth/frankdejonge",
+                    "type": "other"
                 }
             ],
-            "time": "2020-03-08T18:53:20+00:00"
+            "time": "2020-03-17T18:58:12+00:00"
         },
         {
             "name": "league/glide",
@@ -9937,16 +10005,16 @@
         },
         {
             "name": "symplify/package-builder",
-            "version": "v7.2.4",
+            "version": "v7.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "819df91cdc61e901429746656acec37ef1f38aac"
+                "reference": "04c3f6fe67fd88913d26948a4d153239ad53323c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/819df91cdc61e901429746656acec37ef1f38aac",
-                "reference": "819df91cdc61e901429746656acec37ef1f38aac",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/04c3f6fe67fd88913d26948a4d153239ad53323c",
+                "reference": "04c3f6fe67fd88913d26948a4d153239ad53323c",
                 "shasum": ""
             },
             "require": {
@@ -9989,11 +10057,11 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-03-12T09:04:14+00:00"
+            "time": "2020-03-18T23:14:48+00:00"
         },
         {
             "name": "tightenco/collect",
-            "version": "v7.1.2",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",
@@ -10162,24 +10230,24 @@
         },
         {
             "name": "webimpress/safe-writer",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webimpress/safe-writer.git",
-                "reference": "d03bea3b98abe1d4c8b24cbebf524361ffaafee4"
+                "reference": "d6e879960febb307c112538997316371f1e95b12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webimpress/safe-writer/zipball/d03bea3b98abe1d4c8b24cbebf524361ffaafee4",
-                "reference": "d03bea3b98abe1d4c8b24cbebf524361ffaafee4",
+                "url": "https://api.github.com/repos/webimpress/safe-writer/zipball/d6e879960febb307c112538997316371f1e95b12",
+                "reference": "d6e879960febb307c112538997316371f1e95b12",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.4.3",
-                "webimpress/coding-standard": "dev-develop"
+                "phpunit/phpunit": "^8.5.2 || ^9.0.1",
+                "webimpress/coding-standard": "^1.1.4"
             },
             "type": "library",
             "extra": {
@@ -10206,7 +10274,13 @@
                 "safe writer",
                 "webimpress"
             ],
-            "time": "2019-11-27T19:40:53+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/michalbundyra",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-03-21T15:49:08+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -10519,7 +10593,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bolt/assets": 10
+        "bolt/assets": 10,
+        "bolt/forms": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
