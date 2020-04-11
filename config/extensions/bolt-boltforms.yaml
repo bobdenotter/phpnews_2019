@@ -9,11 +9,13 @@ debug:
     enabled: false
     address: bobdenotter@gmail.com
 
-## CSRF protection
+## Various SPAM protection measures
 #
 # Enable CSRF protection for forms. You should leave this set to 'true', unless
 # you know what you're doing.
 csrf: true
+honeypot: true
+spam-action: mark-as-spam # Either 'block', 'none' or 'mark-as-spam'
 
 # Global templates used for rendering forms and emails.
 #
@@ -95,7 +97,7 @@ contact:
         debug: false
         debug_address: name@example.com # Email address used when debug mode is enabled
         debug_smtp: true
-        subject: Your message was submitted
+        subject: 'PHPNews.io contact form from "{NAME}"'
         replyto_name: '{NAME}'                 # Email addresses and names can be either the
         replyto_email: '{EMAIL}'                 # name of a field below or valid text.
         to_email: 'bobdenotter+phpnews@gmail.com'            #
