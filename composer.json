@@ -9,7 +9,8 @@
         "bolt/newswidget": "^1.0",
         "bobdenotter/weatherwidget": "^1.0",
         "nicolus/picofeed": "^0.1.42",
-        "bolt/forms": "dev-master"
+        "bolt/forms": "dev-master",
+        "bobdenotter/configuration-notices": "^1.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.1",

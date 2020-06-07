@@ -675,7 +675,11 @@ feeds:
     feed: https://feeds.feedburner.com/strangebuzz/en
     name: COil
     title: Strangebuzz
-
+  php.watch:
+    url: "https://php.watch/#read-more"
+    feed: https://php.watch/feed/articles.xml
+    name: PHP.Watch
+    title: PHP.Watch
       
 
   # Frontend stuff
