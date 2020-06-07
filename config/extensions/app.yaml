@@ -160,11 +160,6 @@ feeds:
     title: "Rafael Dohms' blog"
     url: "https://blog.doh.ms/"
     feed: "https://blog.doh.ms/feed/"
-  sitepoint:
-    name: "Sitepoint"
-    title: "Sitepoint"
-    url: "https://www.sitepoint.com/php/"
-    feed: "https://www.sitepoint.com/php/feed/"
   annafilina:
     name: "Anna Filina"
     title: "Anna Filina's weblog"
@@ -689,4 +684,11 @@ feeds:
     name: Keith Cirkel
     feed: https://blog.keithcirkel.co.uk/rss/
     title: Keith Cirkel
+    active: false
+
+  sitepoint:
+    name: "Sitepoint"
+    title: "Sitepoint"
+    url: "https://www.sitepoint.com/php/"
+    feed: "https://www.sitepoint.com/php/feed/"
     active: false
