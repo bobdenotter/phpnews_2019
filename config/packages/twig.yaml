@@ -14,4 +14,4 @@ twig:
         'config': '@Bolt\Configuration\Config'
 
     # Override Symfony's error pages (so we can show custom 404's)
-    exception_controller: Bolt\Controller\ExceptionController::showAction
+    exception_controller: ~
