@@ -84,7 +84,7 @@ class RssFetcherExtension extends BaseExtension
 
         } catch (\Exception $e) {
             echo "### Error: couldn't parse " . $feedDetails['feed'] . "\n";
-            return null;
+            return [];
         }
 
         return $feed->getItems();

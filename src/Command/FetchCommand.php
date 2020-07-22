@@ -36,7 +36,7 @@ class FetchCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
@@ -44,6 +44,8 @@ class FetchCommand extends Command
 
         $rss->fetchAllFeeds($input->getArgument('onlyfeed'));
 
-        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+        $io->success('Feed items fetched and imported');
+
+        return 1;
     }
 }
