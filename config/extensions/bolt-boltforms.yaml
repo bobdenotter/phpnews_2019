@@ -6,7 +6,7 @@
 #
 # If enabled, ALL forms will go into debug mode.
 debug:
-    enabled: true
+    enabled: false
     address: noreply@example.com
 
 ## Various SPAM protection measures
@@ -100,10 +100,10 @@ contact:
         subject: Your message was submitted
         replyto_name: '{NAME}'                 # Email addresses and names can be either the
         replyto_email: '{EMAIL}'                 # name of a field below or valid text.
-        to_name: 'WebsiteName'     
-        to_email: 'youremail@example.org'            #
-        from_name: 'WebsiteName'                #
-        from_email: 'youremail@example.org'   #
+        to_name: 'PHPNews'     
+        to_email: 'bobdenotter+phpnews@gmail.com'            #
+        from_name: 'PHPNews'                #
+        from_email: 'youdidit@freedom.nl'   #
     feedback:
         success: Message submission successful
         error: There are errors in the form, please fix before trying to resubmit
