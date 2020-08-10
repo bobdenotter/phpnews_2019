@@ -199,6 +199,9 @@
     "league/glide-symfony": {
         "version": "1.0.3"
     },
+    "league/mime-type-detection": {
+        "version": "1.4.0"
+    },
     "miljar/php-exif": {
         "version": "v0.6.4"
     },
@@ -465,9 +468,6 @@
     "symfony/http-kernel": {
         "version": "v4.2.3"
     },
-    "symfony/inflector": {
-        "version": "v4.2.3"
-    },
     "symfony/intl": {
         "version": "v4.2.3"
     },
@@ -723,6 +723,9 @@
     },
     "willdurand/negotiation": {
         "version": "v2.3.1"
+    },
+    "xemlock/htmlpurifier-html5": {
+        "version": "v0.1.11"
     },
     "zendframework/zendxml": {
         "version": "1.2.0"
