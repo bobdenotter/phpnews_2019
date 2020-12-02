@@ -116,7 +116,7 @@ contact:
         subject: Your message was submitted
         replyto_name: '{NAME}'                 # Email addresses and names can be either the
         replyto_email: '{EMAIL}'                 # name of a field below or valid text.
-        to_name: 'PHPNews'     
+        to_name: 'PHPNews'
         to_email: 'bobdenotter+phpnews@gmail.com'
         from_name: 'PHPNews'
         from_email: 'youdidit@freedom.nl'
@@ -155,6 +155,10 @@ contact:
                 label: Do you want us to contact you back?
                 choices: { 'Yes': 'yes', 'No': 'no' }
                 multiple: false
+        my_hcaptcha_field:
+            type: captcha
+            options:
+                captcha_type: hcaptcha
         submit:
             type: submit
             options:

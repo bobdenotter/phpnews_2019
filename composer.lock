@@ -638,16 +638,16 @@
         },
         {
             "name": "bolt/forms",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/forms.git",
-                "reference": "448c5f7922ddc4da90eff87ed36d27df1a0bbd3c"
+                "reference": "4409fa0d68b0baa1ec3768a2d02d7ff25535853c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/forms/zipball/448c5f7922ddc4da90eff87ed36d27df1a0bbd3c",
-                "reference": "448c5f7922ddc4da90eff87ed36d27df1a0bbd3c",
+                "url": "https://api.github.com/repos/bolt/forms/zipball/4409fa0d68b0baa1ec3768a2d02d7ff25535853c",
+                "reference": "4409fa0d68b0baa1ec3768a2d02d7ff25535853c",
                 "shasum": ""
             },
             "require": {
@@ -681,9 +681,9 @@
             "description": "📦 This Bolt extension can be used to handle forms in your Bolt 4 project.",
             "support": {
                 "issues": "https://github.com/bolt/forms/issues",
-                "source": "https://github.com/bolt/forms/tree/1.1.1"
+                "source": "https://github.com/bolt/forms/tree/1.1.2"
             },
-            "time": "2020-12-02T13:35:38+00:00"
+            "time": "2020-12-02T15:14:50+00:00"
         },
         {
             "name": "bolt/newswidget",
