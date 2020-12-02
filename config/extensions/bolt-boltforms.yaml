@@ -117,9 +117,9 @@ contact:
         replyto_name: '{NAME}'                 # Email addresses and names can be either the
         replyto_email: '{EMAIL}'                 # name of a field below or valid text.
         to_name: 'PHPNews'     
-        to_email: 'bobdenotter+phpnews@gmail.com'            #
-        from_name: 'PHPNews'                #
-        from_email: 'youdidit@freedom.nl'   #
+        to_email: 'bobdenotter+phpnews@gmail.com'
+        from_name: 'PHPNews'
+        from_email: 'youdidit@freedom.nl'
     feedback:
         success: Message submission successful
         error: There are errors in the form, please fix before trying to resubmit
