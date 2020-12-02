@@ -20,7 +20,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
             App:
@@ -38,8 +38,8 @@ doctrine:
         dql:
             string_functions:
                 JSON_EXTRACT: Bolt\Doctrine\Functions\JsonExtract
-                JSON_CONTAINS: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonContains
-                CAST: DoctrineExtensions\Query\Mysql\Cast
-                INSTR: DoctrineExtensions\Query\Mysql\Instr
+                JSON_GET_TEXT: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonGetText
+                CAST: Bolt\Doctrine\Query\Cast
             numeric_functions:
                 RAND: Bolt\Doctrine\Functions\Rand
+
