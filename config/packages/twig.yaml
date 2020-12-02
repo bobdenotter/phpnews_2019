@@ -1,17 +1,24 @@
 twig:
     debug: '%kernel.debug%'
-    strict_variables: true
+    strict_variables: '%kernel.debug%'
     form_themes:
         - '@bolt/form/layout.html.twig'
         - '@bolt/form/fields.html.twig'
     paths:
         # Since the name of the theme folder is dynamic, we shouldn't set it here, but dynamically
         # See TwigAwareController::setTwigLoader()
-        # '%kernel.project_dir%/public/theme/%bolt.theme%': ''
+        
+        # The following line is commented out by default (for now), because enabling it
+        # breaks the installation process: It breaks because `base-2021` isn't copied yet, 
+        # and the command to copy `base-2021` breaks, because the folder doesn't exist yet.
+        # @see: https://github.com/bolt/project/pull/37
+        # '%kernel.project_dir%/public/theme/%bolt.theme%': 'theme'
+        
         '%kernel.project_dir%/vendor/bolt/core/templates/': 'bolt'
     default_path: '%kernel.project_dir%/vendor/bolt/core/templates'
     globals:
         'config': '@Bolt\Configuration\Config'
 
-    # Override Symfony's error pages (so we can show custom 404's)
+    # Silence Twig / Symfony's exception controller here, so we can set it up properly in
+    # `framework.yaml` (so we can show custom 404's)
     exception_controller: ~

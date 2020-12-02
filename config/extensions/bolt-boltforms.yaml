@@ -17,6 +17,22 @@ csrf: true
 honeypot: true
 spam-action: mark-as-spam # Either 'block', 'none' or 'mark-as-spam'
 
+layout:
+    form: 'bootstrap_4_layout.html.twig' # or see all options here: https://github.com/symfony/symfony/tree/5.x/src/Symfony/Bridge/Twig/Resources/views/Form
+    bootstrap: true # if true, bootstrap will automatically be included.
+
+## hCaptcha set up
+#
+# NOTE: You can get your keys from https://dashboard.hcaptcha.com/sites
+# * `public_key` key will be labeled "Site key" within the Site configuration
+# * `private_key` key will be labeled "Secret key" within the Settings tab
+#
+hcaptcha:
+    enabled: true
+    public_key: 'dfa7fada-6792-4c78-8f7b-c54f0cd3f5a0'
+    private_key: '0x74F46a83Eb31DF436C00375D6cAd6396bfdf106c'
+    theme: light
+
 # Global templates used for rendering forms and emails.
 #
 # You can find assorted templates to copy and modify in the templates/
@@ -100,10 +116,10 @@ contact:
         subject: Your message was submitted
         replyto_name: '{NAME}'                 # Email addresses and names can be either the
         replyto_email: '{EMAIL}'                 # name of a field below or valid text.
-        to_name: 'WebsiteName'     
-        to_email: 'youremail@example.org'            #
-        from_name: 'WebsiteName'                #
-        from_email: 'youremail@example.org'   #
+        to_name: 'WebsiteName'
+        to_email: 'youremail@example.org'
+        from_name: 'WebsiteName'
+        from_email: 'youremail@example.org'
     feedback:
         success: Message submission successful
         error: There are errors in the form, please fix before trying to resubmit
@@ -144,7 +160,7 @@ contact:
             options:
                 label: Submit my message »
                 attr:
-                    class: button primary
+                    class: btn btn-primary
 
 ## Example 2
 #
