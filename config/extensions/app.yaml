@@ -432,6 +432,7 @@ feeds:
     name: Matthew Setter
     feed: https://www.matthewsetter.com/atom.xml
     title: Matthew Setter
+    active: false
   mattstauffer:
     url: https://mattstauffer.co/
     name: MattStauffer.co
