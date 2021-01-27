@@ -303,19 +303,23 @@ class RssFetcherExtension extends BaseExtension
             }
         }
 
-        // Find one in the parsed RSS item, perhaps?
-        if ($item->getContent() != '') {
-            $doc = new \DOMDocument();
-            $doc->loadHTML($item->getContent());
-            /** @var \DOMNodeList $tags */
-            $tags = $doc->getElementsByTagName('img');
-            /** @var \DOMElement $tag */
-            foreach ($tags as $tag) {
-                $image = $tag->getAttribute('src');
-                if ($image = $this->fixImageLink($image, $baseUrl)) {
-                    return $image;
+        try {
+            // Find one in the parsed RSS item, perhaps?
+            if ($item->getContent() != '') {
+                $doc = new \DOMDocument();
+                $doc->loadHTML($item->getContent());
+                /** @var \DOMNodeList $tags */
+                $tags = $doc->getElementsByTagName('img');
+                /** @var \DOMElement $tag */
+                foreach ($tags as $tag) {
+                    $image = $tag->getAttribute('src');
+                    if ($image = $this->fixImageLink($image, $baseUrl)) {
+                        return $image;
+                    }
                 }
             }
+        } catch (\Exception $exception) {
+            // never mind...
         }
 
         return '';

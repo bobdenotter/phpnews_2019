@@ -230,7 +230,6 @@ feeds:
     feed: https://medium.com/feed/appstract
     title: Appstract - Medium
     active: false
-    
   archybold:
     url: https://www.archybold.com
     name: Archyblog
