@@ -36,6 +36,7 @@ feeds:
     feed: https://scotch.io/feed
     title: Scotch.io
     compact: true
+    active: false
   signalvnoise:
     url: https://m.signalvnoise.com?source=rss----668e14b18fb1---4
     name: Signal vs. Noise
@@ -277,6 +278,7 @@ feeds:
     name: christoph-rumpel.com
     feed: https://christoph-rumpel.com/feed.xml
     title: christoph-rumpel.com
+    active: false
   codediesel:
     url: https://www.codediesel.com
     name: code-diesel
@@ -353,7 +355,7 @@ feeds:
     name: "Gary Hockin @GeeH"
     feed: https://blog.hock.in/feed/
     title: "Gary Hockin @GeeH"
-
+    active: false
   hannesvdvreken:
     url: https://hannesvdvreken.com/
     name: Hannes Van De Vreken
@@ -585,7 +587,7 @@ feeds:
   radek:
     url: https://radek.io
     name: radek.io - Articles
-    feed: https://radek.io/rss.xml
+    feed: https://radek.io/feed.xml
     title: radek.io - Articles
   sarahmei:
     url: https://www.sarahmei.com/blog
