@@ -37,12 +37,6 @@ feeds:
     title: Scotch.io
     compact: true
     active: false
-  signalvnoise:
-    url: https://m.signalvnoise.com?source=rss----668e14b18fb1---4
-    name: Signal vs. Noise
-    feed: https://signalvnoise.com/posts.rss
-    title: Signal vs. Noise
-    compact: true
   googleblog:
     url: https://security.googleblog.com/
     name: Google Online Security Blog
@@ -263,6 +257,7 @@ feeds:
     title: ThisHosting.Rocks
     feed: https://thishosting.rocks/tag/php/feed/
     compact: true
+    active: false
   catswhocode:
     url: https://www.catswhocode.com/blog
     name: CatsWhoCode.com
@@ -285,6 +280,7 @@ feeds:
     name: code-diesel
     feed: https://www.codediesel.com/feed/
     title: code-diesel
+    active: false
   colinodell:
     url: https://www.colinodell.com/blog/rss.xml
     name: colinodell.com - Blog
@@ -678,7 +674,7 @@ feeds:
     feed: https://php.watch/feed/articles.xml
     name: PHP.Watch
     title: PHP.Watch
-      
+
 
   # Frontend stuff
 
@@ -694,4 +690,10 @@ feeds:
     title: "Sitepoint"
     url: "https://www.sitepoint.com/php/"
     feed: "https://www.sitepoint.com/php/feed/"
+    active: false
+  signalvnoise:
+    url: https://m.signalvnoise.com?source=rss----668e14b18fb1---4
+    name: Signal vs. Noise
+    feed: https://signalvnoise.com/posts.rss
+    title: Signal vs. Noise
     active: false

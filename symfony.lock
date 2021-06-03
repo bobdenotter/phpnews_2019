@@ -55,6 +55,9 @@
     "composer/composer": {
         "version": "1.9.0"
     },
+    "composer/metadata-minifier": {
+        "version": "1.0.0"
+    },
     "composer/semver": {
         "version": "1.5.0"
     },
@@ -90,6 +93,9 @@
     },
     "doctrine/dbal": {
         "version": "v2.9.2"
+    },
+    "doctrine/deprecations": {
+        "version": "v0.5.3"
     },
     "doctrine/doctrine-bundle": {
         "version": "1.6",
@@ -527,6 +533,9 @@
     "symfony/options-resolver": {
         "version": "v4.2.3"
     },
+    "symfony/password-hasher": {
+        "version": "v5.3.0"
+    },
     "symfony/polyfill-ctype": {
         "version": "v1.10.0"
     },
@@ -556,6 +565,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.17.0"
+    },
+    "symfony/polyfill-php81": {
+        "version": "v1.23.0"
     },
     "symfony/process": {
         "version": "v4.2.2"
